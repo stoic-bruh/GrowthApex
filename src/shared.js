@@ -616,7 +616,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-
   const cursor = document.querySelector(".cursor");
 
   document.addEventListener("mousemove", (e) => {
@@ -625,6 +624,4 @@ document.head.appendChild(style);
       cursor.style.top = e.clientY + "px";
     }
   });
-
-
 
