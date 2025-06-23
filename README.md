@@ -1,2 +1,0 @@
-# GrowthApex
-website for  GrowthApex

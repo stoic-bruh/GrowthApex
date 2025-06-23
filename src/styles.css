@@ -237,7 +237,7 @@
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
-            background: var(--gradient-purple);
+            background: var(--accent-yellow);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textGlow 3s ease-in-out infinite;

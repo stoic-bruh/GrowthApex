@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GrowthApex</title>
+    <meta name="description" content="Ready to transform your brand? Contact GrowthApex for industry-leading social media growth strategies.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Subtle Social Media Particles -->
+    <div class="social-particles" id="social-particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GrowthApex</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title fade-in">Let's Build the Future</h1>
+            <p class="subtitle slide-up">Your brand's transformation is one conversation away. Reach out and let's start shaping what's next for your business.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;" class="contact-grid">
+                
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <div class="glass-card">
+                        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem; text-align: center;">Start the Conversation</h2>
+                        <form id="contact-form">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Jane" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 1.5rem;">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="jane@company.com" required>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 1.5rem;">
+                                <label for="company" class="form-label">Company</label>
+                                <input type="text" id="company" name="company" class="form-input" placeholder="Your Company Name">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 1.5rem;">
+                                <label for="budget" class="form-label">Monthly Budget Range</label>
+                                <select id="budget" name="budget" class="form-input" style="cursor: pointer;">
+                                    <option value="">Select Budget Range</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-50k">$25,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k+">$100,000+</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 1.5rem;">
+                                <label for="goals" class="form-label">Primary Goals</label>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                    <label style="display: flex; align-items: center; cursor: pointer;">
+                                        <input type="checkbox" name="goals" value="brand-awareness" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
+                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Brand Awareness</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; cursor: pointer;">
+                                        <input type="checkbox" name="goals" value="lead-generation" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
+                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Lead Generation</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; cursor: pointer;">
+                                        <input type="checkbox" name="goals" value="sales-growth" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
+                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Sales Growth</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; cursor: pointer;">
+                                        <input type="checkbox" name="goals" value="viral-content" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
+                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Viral Content</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 2rem;">
+                                <label for="message" class="form-label">Tell Us About Your Vision</label>
+                                <textarea id="message" name="message" class="form-input" rows="6" placeholder="Describe your brand, current challenges, and what success looks like to you..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" style="width: 100%;">Launch Your Transformation</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="fade-in">
+                    <div style="margin-bottom: 3rem;">
+                        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Get In Touch</h2>
+                        <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 2rem;">Ready to revolutionize your brand's digital presence? Our growth strategists are standing by to discuss your unique challenges and opportunities.</p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 50px; height: 50px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📧</div>
+                                <div>
+                                    <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.25rem;">Email</h4>
+                                    <p style="color: var(--text-secondary);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="523a373e3e3d1235203d25263a3322372a7c313d3f">[email&#160;protected]</a></p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 50px; height: 50px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📱</div>
+                                <div>
+                                    <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.25rem;">Phone</h4>
+                                    <p style="color: var(--text-secondary);">+1 (555) 123-GROW</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 50px; height: 50px; background: var(--gradient-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🏢</div>
+                                <div>
+                                    <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.25rem;">Office</h4>
+                                    <p style="color: var(--text-secondary);">123 Innovation Drive<br>San Francisco, CA 94105</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">What Happens Next?</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div style="display: flex; gap: 1rem;">
+                                <div style="width: 30px; height: 30px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.875rem; flex-shrink: 0;">1</div>
+                                <div>
+                                    <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Strategy Call</h4>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">We'll schedule a deep-dive session to understand your brand and goals.</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem;">
+                                <div style="width: 30px; height: 30px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.875rem; flex-shrink: 0;">2</div>
+                                <div>
+                                    <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Custom Proposal</h4>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Receive a tailored growth blueprint designed specifically for your brand.</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem;">
+                                <div style="width: 30px; height: 30px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.875rem; flex-shrink: 0;">3</div>
+                                <div>
+                                    <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Launch & Scale</h4>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Begin your transformation with our proven growth methodologies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct Contact Options -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title slide-up">Direct Lines</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem;">
+                
+                <div class="glass-card fade-in" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">New Projects</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Ready to start your growth journey?</p>
+                    <a href="/cdn-cgi/l/email-protection#7000021f1a151304033017021f070418110015085e131f1d" style="color: var(--accent-color); font-weight: 600; text-decoration: none;"><span class="__cf_email__" data-cfemail="91e1e3fefbf4f2e5e2d1f6e3fee6e5f9f0e1f4e9bff2fefc">[email&#160;protected]</span></a>
+                </div>
+
+                <div class="glass-card fade-in" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📰</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Press & Media</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Media inquiries and press relations</p>
+                    <a href="/cdn-cgi/l/email-protection#3646445345457651445941425e5746534e1855595b" style="color: var(--accent-color); font-weight: 600; text-decoration: none;"><span class="__cf_email__" data-cfemail="18686a7d6b6b587f6a776f6c7079687d60367b7775">[email&#160;protected]</span></a>
+                </div>
+
+                <div class="glass-card fade-in" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Partnerships</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Strategic partnerships and collaborations</p>
+                    <a href="/cdn-cgi/l/email-protection#24544556504a4156576443564b53504c4554415c0a474b49" style="color: var(--accent-color); font-weight: 600; text-decoration: none;"><span class="__cf_email__" data-cfemail="d7a7b6a5a3b9b2a5a497b0a5b8a0a3bfb6a7b2aff9b4b8ba">[email&#160;protected]</span></a>
+                </div>
+
+                <div class="glass-card fade-in" style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💼</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Careers</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Join our world-class team</p>
+                    <a href="/cdn-cgi/l/email-protection#ee8d8f9c8b8b9c9dae899c81999a868f9e8b96c08d8183" style="color: var(--accent-color); font-weight: 600; text-decoration: none;"><span class="__cf_email__" data-cfemail="f497958691918687b493869b83809c9584918cda979b99">[email&#160;protected]</span></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title slide-up">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 4rem auto 0;">
+                
+                <div class="glass-card fade-in" style="margin-bottom: 1.5rem;">
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">How quickly can we see results?</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">Most clients see initial improvements within 30 days, with significant growth metrics appearing within 90 days. Our approach focuses on sustainable, long-term growth rather than short-term spikes.</p>
+                </div>
+
+                <div class="glass-card fade-in" style="margin-bottom: 1.5rem;">
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">What makes GrowthApex different?</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">We combine data science, creative innovation, and growth hacking in ways traditional agencies can't. Our team includes former executives from Google, Meta, and Stanford-trained strategists who bring Fortune 500 expertise to every client.</p>
+                </div>
+
+                <div class="glass-card fade-in" style="margin-bottom: 1.5rem;">
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Do you work with small businesses?</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">We work with ambitious brands of all sizes. Whether you're a startup looking to break through or an established company seeking transformation, we tailor our approach to your specific needs and budget.</p>
+                </div>
+
+                <div class="glass-card fade-in">
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">What's included in your service?</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">Our comprehensive approach includes strategy development, content creation, paid advertising, growth hacking, analytics, and ongoing optimization. Think of us as your dedicated growth department.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--secondary-bg); padding: 4rem 2rem 2rem; text-align: center; border-top: 1px solid var(--glass-border);">
+        <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">GrowthApex</div>
+                <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Transforming brands into digital powerhouses through innovative social media strategies and growth hacking.</p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="index.html" style="color: var(--text-secondary); transition: var(--transition);">Home</a>
+                <a href="about_us.html" style="color: var(--text-secondary); transition: var(--transition);">About Us</a>
+                <a href="blog.html" style="color: var(--text-secondary); transition: var(--transition);">Blog</a>
+                <a href="case_studies.html" style="color: var(--text-secondary); transition: var(--transition);">Case Studies</a>
+                <a href="contact.html" style="color: var(--accent-color);">Contact</a>
+            </div>
+            <div style="border-top: 1px solid var(--glass-border); padding-top: 2rem; color: var(--text-tertiary); font-size: 0.875rem;">
+                <p>&copy; 2024 GrowthApex. All rights reserved. | Powered by MiniMax Agent</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JavaScript -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="shared.js"></script>
+    
+    <!-- Contact Form Enhancement -->
+    <script>
+        // Add specific contact form enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            
+            // Add form validation feedback
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Collect form data
+                const formData = new FormData(form);
+                const goals = Array.from(form.querySelectorAll('input[name="goals"]:checked')).map(cb => cb.value);
+                
+                // Show success message
+                const submitBtn = form.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Sending Your Vision...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    submitBtn.textContent = '✅ Your Journey Begins!';
+                    submitBtn.style.background = 'var(--gradient-3)';
+                    
+                    setTimeout(() => {
+                        // Show detailed success message
+                        const successDiv = document.createElement('div');
+                        successDiv.style.cssText = `
+                            position: fixed;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            background: var(--glass-bg);
+                            backdrop-filter: blur(20px);
+                            border: 1px solid var(--glass-border);
+                            border-radius: var(--border-radius);
+                            padding: 3rem;
+                            text-align: center;
+                            z-index: 10000;
+                            max-width: 500px;
+                            width: 90%;
+                        `;
+                        
+                        successDiv.innerHTML = `
+                            <div style="color: var(--accent-color); font-size: 4rem; margin-bottom: 1.5rem;">🚀</div>
+                            <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.5rem;">Your Transformation Starts Now!</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Our growth strategists will contact you within 24 hours to discuss your vision and create a custom growth blueprint.</p>
+                            <button onclick="this.parentElement.remove()" style="background: var(--gradient-1); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600;">Close</button>
+                        `;
+
+                        document.body.appendChild(successDiv);
+
+                        // Reset form
+                        form.reset();
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = 'var(--gradient-1)';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }, 2000);
+            });
+        });
+
+        // Add responsive grid handling
+        function handleResponsiveGrid() {
+            const grid = document.querySelector('.contact-grid');
+            if (window.innerWidth <= 768) {
+                grid.style.gridTemplateColumns = '1fr';
+                grid.style.gap = '2rem';
+            } else {
+                grid.style.gridTemplateColumns = '1fr 1fr';
+                grid.style.gap = '4rem';
+            }
+        }
+
+        window.addEventListener('resize', handleResponsiveGrid);
+        handleResponsiveGrid();
+    </script>
+
+
+
+</body>
+</html>

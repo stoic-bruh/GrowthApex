@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Lab - GrowthApex</title>
+    <meta name="description" content="Exclusive experiments, cutting-edge tools, and insider secrets from the GrowthApex innovation lab.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Subtle Social Media Particles -->
+    <div class="social-particles" id="social-particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GrowthApex</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title fade-in">⚗️ Growth Lab</h1>
+            <p class="subtitle slide-up">Welcome to our innovation laboratory. Where we experiment with bleeding-edge growth strategies before they become mainstream.</p>
+        </div>
+    </section>
+
+    <!-- Exclusive Access Notice -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <div class="glass-card fade-in" style="padding: 3rem;">
+                    <div style="font-size: 4rem; margin-bottom: 2rem;">🔬</div>
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem;">Invitation Only</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">The Growth Lab is our exclusive playground for testing experimental strategies, AI tools, and breakthrough methodologies. Access is reserved for our premium clients and industry partners.</p>
+                    
+                    <div style="background: rgba(139, 92, 246, 0.1); border-radius: var(--border-radius); padding: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-color);">
+                        <h3 style="color: var(--text-primary); font-weight: 700; margin-bottom: 1rem;">What's Inside:</h3>
+                        <ul style="text-align: left; color: var(--text-secondary); line-height: 1.8;">
+                            <li style="margin-bottom: 0.5rem;">🧪 Beta testing of new growth tools</li>
+                            <li style="margin-bottom: 0.5rem;">📊 Exclusive data insights and reports</li>
+                            <li style="margin-bottom: 0.5rem;">🤖 Early access to AI-powered strategies</li>
+                            <li style="margin-bottom: 0.5rem;">🎯 Live experiments and real-time results</li>
+                            <li style="margin-bottom: 0.5rem;">💡 Direct collaboration opportunities</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="contact.html" class="btn">Request Access</a>
+                        <a href="index.html" class="btn-secondary">Explore Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Experiments -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title slide-up">Current Experiments</h2>
+            <p style="text-align: center; color: var(--text-secondary); font-size: 1.125rem; margin-bottom: 4rem;">A glimpse into our active research projects</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                
+                <div class="glass-card fade-in" style="opacity: 0.7; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">ACTIVE</div>
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">AI Content Optimization</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Machine learning algorithm that predicts viral potential and automatically optimizes content for maximum engagement.</p>
+                    <div style="background: rgba(139, 92, 246, 0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-secondary); font-size: 0.875rem;">Success Rate</span>
+                            <span style="color: var(--accent-color); font-weight: 600;">847%</span>
+                        </div>
+                        <div style="background: var(--glass-border); height: 4px; border-radius: 2px; overflow: hidden;">
+                            <div style="background: var(--gradient-1); height: 100%; width: 85%; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                    <span style="color: var(--text-tertiary); font-size: 0.875rem;">🔒 Details classified</span>
+                </div>
+
+                <div class="glass-card fade-in" style="opacity: 0.7; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent-pink); color: white; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">BETA</div>
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Micro-Targeting 3.0</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Advanced psychographic targeting system that identifies ideal customers with 99.2% accuracy using behavioral patterns.</p>
+                    <div style="background: rgba(236, 72, 153, 0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-secondary); font-size: 0.875rem;">Accuracy Rate</span>
+                            <span style="color: var(--accent-pink); font-weight: 600;">99.2%</span>
+                        </div>
+                        <div style="background: var(--glass-border); height: 4px; border-radius: 2px; overflow: hidden;">
+                            <div style="background: var(--gradient-2); height: 100%; width: 99%; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                    <span style="color: var(--text-tertiary); font-size: 0.875rem;">🔒 Testing with select clients</span>
+                </div>
+
+                <div class="glass-card fade-in" style="opacity: 0.7; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--accent-green); color: white; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">PROTOTYPE</div>
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Viral Velocity Engine</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Predictive algorithm that identifies content with viral potential 24-48 hours before it peaks, allowing strategic amplification.</p>
+                    <div style="background: rgba(16, 185, 129, 0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span style="color: var(--text-secondary); font-size: 0.875rem;">Prediction Accuracy</span>
+                            <span style="color: var(--accent-green); font-weight: 600;">94.7%</span>
+                        </div>
+                        <div style="background: var(--glass-border); height: 4px; border-radius: 2px; overflow: hidden;">
+                            <div style="background: var(--gradient-3); height: 100%; width: 95%; border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                    <span style="color: var(--text-tertiary); font-size: 0.875rem;">🔒 Internal testing only</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Partners -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title slide-up">Innovation Partners</h2>
+            <p style="text-align: center; color: var(--text-secondary); font-size: 1.125rem; margin-bottom: 4rem;">Leading companies shaping the future with us</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                
+                <div class="glass-card fade-in" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: white; margin: 0 auto 1rem;">AI</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">AI Dynamics</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Machine Learning Platform</p>
+                </div>
+
+                <div class="glass-card fade-in" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: white; margin: 0 auto 1rem;">DV</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">DataVault</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Analytics Infrastructure</p>
+                </div>
+
+                <div class="glass-card fade-in" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: var(--gradient-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: white; margin: 0 auto 1rem;">VR</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">ViraLabs</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Viral Research Institute</p>
+                </div>
+
+                <div class="glass-card fade-in" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f59e0b, #ea580c); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: white; margin: 0 auto 1rem;">NT</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">NeuroTech</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Behavioral Science</p>
+                </div>
+
+                <div class="glass-card fade-in" style="text-align: center; padding: 2rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #8b5cf6, #ec4899); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: white; margin: 0 auto 1rem;">QS</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">QuantumScale</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Growth Infrastructure</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Request -->
+    <section class="section section-alt">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <h2 class="section-title slide-up">Ready to Join the Elite?</h2>
+                <p class="subtitle fade-in" style="margin-bottom: 3rem;">Gain exclusive access to our Growth Lab and be the first to leverage breakthrough strategies before they hit the market.</p>
+                
+                <div class="glass-card scale-in" style="padding: 3rem;">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2rem;">Qualification Criteria</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem; text-align: left;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 20px; height: 20px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: bold; flex-shrink: 0;">✓</div>
+                            <span style="color: var(--text-secondary);">Premium client status</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 20px; height: 20px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: bold; flex-shrink: 0;">✓</div>
+                            <span style="color: var(--text-secondary);">Innovation mindset</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 20px; height: 20px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: bold; flex-shrink: 0;">✓</div>
+                            <span style="color: var(--text-secondary);">Scale readiness</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 20px; height: 20px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: bold; flex-shrink: 0;">✓</div>
+                            <span style="color: var(--text-secondary);">Risk tolerance</span>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="cta-button">Apply for Access</a>
+                    <p style="color: var(--text-tertiary); font-size: 0.875rem; margin-top: 1rem;">Limited spots available. Selection is highly competitive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--secondary-bg); padding: 4rem 2rem 2rem; text-align: center; border-top: 1px solid var(--glass-border);">
+        <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">GrowthApex</div>
+                <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Transforming brands into digital powerhouses through innovative social media strategies and growth hacking.</p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="index.html" style="color: var(--text-secondary); transition: var(--transition);">Home</a>
+                <a href="about_us.html" style="color: var(--text-secondary); transition: var(--transition);">About Us</a>
+                <a href="blog.html" style="color: var(--text-secondary); transition: var(--transition);">Blog</a>
+                <a href="case_studies.html" style="color: var(--text-secondary); transition: var(--transition);">Case Studies</a>
+                <a href="contact.html" style="color: var(--text-secondary); transition: var(--transition);">Contact</a>
+            </div>
+            <div style="border-top: 1px solid var(--glass-border); padding-top: 2rem; color: var(--text-tertiary); font-size: 0.875rem;">
+                <p>&copy; 2024 GrowthApex. All rights reserved. | Powered by MiniMax Agent</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JavaScript -->
+    <script src="shared.js"></script>
+    
+    <!-- Growth Lab specific effects -->
+    <script>
+        // Add special effects for the lab theme
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add pulsing effect to active experiment badges
+            const activeBadges = document.querySelectorAll('[style*="background: var(--accent-color)"]');
+            activeBadges.forEach(badge => {
+                badge.style.animation = 'pulse 2s infinite';
+            });
+
+            // Add hover effects to experiment cards
+            const experimentCards = document.querySelectorAll('.glass-card[style*="opacity: 0.7"]');
+            experimentCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.opacity = '1';
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    this.style.borderColor = 'rgba(139, 92, 246, 0.5)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.opacity = '0.7';
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.borderColor = 'var(--glass-border)';
+                });
+            });
+
+            // Add progress bar animations
+            const progressBars = document.querySelectorAll('[style*="background: var(--gradient-"]');
+            
+            const animateProgress = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.transition = 'width 1.5s ease-out';
+                            bar.style.width = width;
+                        }, 100);
+                        observer.unobserve(bar);
+                    }
+                });
+            };
+
+            const progressObserver = new IntersectionObserver(animateProgress, {
+                threshold: 0.5
+            });
+
+            progressBars.forEach(bar => {
+                if (bar.style.height === '100%') {
+                    progressObserver.observe(bar);
+                }
+            });
+        });
+
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent += `
+            @keyframes pulse {
+                0%, 100% { 
+                    opacity: 1; 
+                    transform: scale(1);
+                }
+                50% { 
+                    opacity: 0.8; 
+                    transform: scale(1.05);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Matrix-style code rain effect (subtle)
+        function createCodeRain() {
+            const codeSymbols = ['01', '10', '11', '00', '101', '010', '110', '001'];
+            const particleContainer = document.querySelector('.social-particles');
+            
+            setInterval(() => {
+                if (Math.random() < 0.1) { // 10% chance
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `
+                        position: absolute;
+                        left: ${Math.random() * 100}%;
+                        top: -20px;
+                        color: var(--accent-color);
+                        font-family: 'Courier New', monospace;
+                        font-size: 12px;
+                        opacity: 0.3;
+                        z-index: 1;
+                        animation: fallCode 8s linear forwards;
+                        pointer-events: none;
+                    `;
+                    particle.textContent = codeSymbols[Math.floor(Math.random() * codeSymbols.length)];
+                    particleContainer.appendChild(particle);
+
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.remove();
+                        }
+                    }, 8000);
+                }
+            }, 2000);
+        }
+
+        // Add fall animation for code
+        style.textContent += `
+            @keyframes fallCode {
+                0% {
+                    transform: translateY(-20px);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 0.3;
+                }
+                90% {
+                    opacity: 0.3;
+                }
+                100% {
+                    transform: translateY(100vh);
+                    opacity: 0;
+                }
+            }
+        `;
+
+        // Initialize code rain effect
+        createCodeRain();
+    </script>
+
+<style>
+#minimax-floating-ball {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 12px;
+  background: #222222;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  color: #F8F8F8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#minimax-floating-ball:hover {
+  transform: translateY(-2px);
+  background: #383838;
+}
+
+.minimax-ball-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.minimax-logo-wave {
+  width: 26px;
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='22' viewBox='0 0 26 22' fill='none'%3E%3Cg clip-path='url(%23clip0_3442_102412)'%3E%3Cpath d='M12.8405 14.6775C12.8405 14.9897 13.0932 15.2424 13.4055 15.2424C13.7178 15.2424 13.9705 14.9897 13.9705 14.6775V2.98254C13.9705 1.88957 13.0809 1 11.9879 1C10.895 1 10.0054 1.88957 10.0054 2.98254V11.566V17.1068C10.0054 17.5773 9.62327 17.9594 9.1528 17.9594C8.68233 17.9594 8.30021 17.5773 8.30021 17.1068V8.04469C8.30021 6.95172 7.41063 6.06215 6.31767 6.06215C5.22471 6.06215 4.33513 6.95172 4.33513 8.04469V11.8855C4.33513 12.3559 3.953 12.7381 3.48254 12.7381C3.01207 12.7381 2.62994 12.3559 2.62994 11.8855V10.4936C2.62994 10.1813 2.37725 9.92861 2.06497 9.92861C1.7527 9.92861 1.5 10.1813 1.5 10.4936V11.8855C1.5 12.9784 2.38957 13.868 3.48254 13.868C4.5755 13.868 5.46508 12.9784 5.46508 11.8855V8.04469C5.46508 7.57422 5.8472 7.19209 6.31767 7.19209C6.78814 7.19209 7.17026 7.57422 7.17026 8.04469V17.1068C7.17026 18.1998 8.05984 19.0894 9.1528 19.0894C10.2458 19.0894 11.1353 18.1998 11.1353 17.1068V2.98254C11.1353 2.51207 11.5175 2.12994 11.9879 2.12994C12.4584 2.12994 12.8405 2.51207 12.8405 2.98254V14.6775Z' fill='%23F8F8F8'/%3E%3Cpath d='M23.3278 6.06215C22.2348 6.06215 21.3452 6.95172 21.3452 8.04469V15.6143C21.3452 16.0847 20.9631 16.4669 20.4926 16.4669C20.0222 16.4669 19.6401 16.0847 19.6401 15.6143V2.98254C19.6401 1.88957 18.7505 1 17.6575 1C16.5645 1 15.675 1.88957 15.675 2.98254V19.0175C15.675 19.4879 15.2928 19.8701 14.8224 19.8701C14.3519 19.8701 13.9698 19.4879 13.9698 19.0175V17.0329C13.9698 16.7206 13.7171 16.4679 13.4048 16.4679C13.0925 16.4679 12.8398 16.7206 12.8398 17.0329V19.0175C12.8398 20.1104 13.7294 21 14.8224 21C15.9153 21 16.8049 20.1104 16.8049 19.0175V2.98254C16.8049 2.51207 17.187 2.12994 17.6575 2.12994C18.128 2.12994 18.5101 2.51207 18.5101 2.98254V15.6143C18.5101 16.7072 19.3997 17.5968 20.4926 17.5968C21.5856 17.5968 22.4752 16.7072 22.4752 15.6143V8.04469C22.4752 7.57422 22.8573 7.19209 23.3278 7.19209C23.7982 7.19209 24.1804 7.57422 24.1804 8.04469V14.6775C24.1804 14.9897 24.4331 15.2424 24.7453 15.2424C25.0576 15.2424 25.3103 14.9897 25.3103 14.6775V8.04469C25.3103 6.95172 24.4207 6.06215 23.3278 6.06215Z' fill='%23F8F8F8'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3442_102412'%3E%3Crect width='25' height='22' fill='white' transform='translate(0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.minimax-ball-text {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.minimax-close-icon {
+  margin-left: 8px;
+  font-size: 16px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.minimax-close-icon:hover {
+  opacity: 1;
+}
+</style>
+<div id="minimax-floating-ball">
+  <div class="minimax-ball-content">
+    <div class="minimax-logo-wave"></div>
+    <span class="minimax-ball-text">Created by MiniMax Agent</span>
+  </div>
+  <div class="minimax-close-icon">×</div>
+</div>
+<script>
+// Initialize floating ball functionality
+function initFloatingBall() {
+  const ball = document.getElementById('minimax-floating-ball');
+  if (!ball) return;
+
+  // Initial animation
+  ball.style.opacity = '0';
+  ball.style.transform = 'translateY(20px)';
+
+  setTimeout(() => {
+    ball.style.opacity = '1';
+    ball.style.transform = 'translateY(0)';
+  }, 500);
+
+  // Handle logo click
+  const ballContent = ball.querySelector('.minimax-ball-content');
+  ballContent.addEventListener('click', function (e) {
+    e.stopPropagation();
+    window.open('https://agent.minimax.io/agent', '_blank');
+    ball.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      ball.style.transform = 'scale(1)';
+    }, 100);
+  });
+
+  // Handle close button click
+  const closeIcon = ball.querySelector('.minimax-close-icon');
+  closeIcon.addEventListener('click', function (e) {
+    e.stopPropagation();
+    ball.style.opacity = '0';
+    ball.style.transform = 'translateY(20px)';
+
+    setTimeout(() => {
+      ball.style.display = 'none';
+    }, 300);
+  });
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initFloatingBall); 
+</script>
+
+</body>
+</html>
