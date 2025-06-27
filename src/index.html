@@ -11,17 +11,18 @@
      <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    
-
     <!-- Subtle Social Media Particles -->
     <div class="social-particles" id="social-particles"></div>
 
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <div class="logo"><a href="index.html">GrowthApex</a></div>
+            <div class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="logo.png" alt="GrowthApex Logo" style="height: 38px; width: 38px; display: inline-block; vertical-align: middle;" />
+                    <span style="font-size: 1.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">GrowthApex</span>
+                </a>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home" >Home</a></li>
                 <li><a href="about_us.html" >About us</a></li>
@@ -210,6 +211,44 @@
                             <button class="service-cta">Learn More</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated 3D Gears Process Section -->
+    <section class="process" id="process">
+        <div class="process-gears-container">
+            <h2 class="section-title">Our Process: Precision in Motion</h2>
+            <p class="process-intro">Every step in your growth journey is powered by our seamless, interconnected process—just like perfectly meshed gears.</p>
+            <div class="gears-flex">
+                <div class="gear-step">
+                    <div class="gear-svg gear1">
+                        <svg width="90" height="90" viewBox="0 0 90 90"><g><circle cx="45" cy="45" r="30" fill="#1a1a1a" stroke="#8b5cf6" stroke-width="6"/><g class="gear-teeth"> <rect x="42" y="4" width="6" height="16" fill="#8b5cf6"/><rect x="42" y="70" width="6" height="16" fill="#8b5cf6"/><rect x="4" y="42" width="16" height="6" fill="#8b5cf6"/><rect x="70" y="42" width="16" height="6" fill="#8b5cf6"/></g></g></svg>
+                        <div class="gear-label">Discovery</div>
+                    </div>
+                    <div class="gear-desc">We analyze your brand, audience, and goals to set the foundation for success.</div>
+                </div>
+                <div class="gear-step">
+                    <div class="gear-svg gear2">
+                        <svg width="90" height="90" viewBox="0 0 90 90"><g><circle cx="45" cy="45" r="30" fill="#1a1a1a" stroke="#10b981" stroke-width="6"/><g class="gear-teeth"> <rect x="42" y="4" width="6" height="16" fill="#10b981"/><rect x="42" y="70" width="6" height="16" fill="#10b981"/><rect x="4" y="42" width="16" height="6" fill="#10b981"/><rect x="70" y="42" width="16" height="6" fill="#10b981"/></g></g></svg>
+                        <div class="gear-label">Creative</div>
+                    </div>
+                    <div class="gear-desc">We craft compelling content and visuals that capture attention and drive engagement.</div>
+                </div>
+                <div class="gear-step">
+                    <div class="gear-svg gear3">
+                        <svg width="90" height="90" viewBox="0 0 90 90"><g><circle cx="45" cy="45" r="30" fill="#1a1a1a" stroke="#f59e0b" stroke-width="6"/><g class="gear-teeth"> <rect x="42" y="4" width="6" height="16" fill="#f59e0b"/><rect x="42" y="70" width="6" height="16" fill="#f59e0b"/><rect x="4" y="42" width="16" height="6" fill="#f59e0b"/><rect x="70" y="42" width="16" height="6" fill="#f59e0b"/></g></g></svg>
+                        <div class="gear-label">Launch</div>
+                    </div>
+                    <div class="gear-desc">We launch and manage campaigns, optimizing for reach, impact, and ROI.</div>
+                </div>
+                <div class="gear-step">
+                    <div class="gear-svg gear4">
+                        <svg width="90" height="90" viewBox="0 0 90 90"><g><circle cx="45" cy="45" r="30" fill="#1a1a1a" stroke="#3b82f6" stroke-width="6"/><g class="gear-teeth"> <rect x="42" y="4" width="6" height="16" fill="#3b82f6"/><rect x="42" y="70" width="6" height="16" fill="#3b82f6"/><rect x="4" y="42" width="16" height="6" fill="#3b82f6"/><rect x="70" y="42" width="16" height="6" fill="#3b82f6"/></g></g></svg>
+                        <div class="gear-label">Optimize</div>
+                    </div>
+                    <div class="gear-desc">We analyze results and fine-tune strategies for continuous, unstoppable growth.</div>
                 </div>
             </div>
         </div>
@@ -528,46 +567,6 @@
         </div>
     </section>
 
-    <!-- Interactive Process Timeline -->
-    <section class="process" id="process">
-        <h2 class="section-title">Our Proven Process</h2>
-        <div class="process-timeline">
-            <div class="timeline-line"></div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Discovery & Strategy</h3>
-                    <p>We start by understanding your brand, audience, and goals. Our team conducts comprehensive research to identify opportunities and develop a data-driven strategy that aligns with your business objectives.</p>
-                </div>
-                <div class="timeline-number">1</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Content Creation & Planning</h3>
-                    <p>Our creative team develops compelling content that resonates with your audience. From visual assets to copywriting, we create a comprehensive content calendar that drives engagement and builds your brand presence.</p>
-                </div>
-                <div class="timeline-number">2</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Campaign Execution</h3>
-                    <p>We launch and manage your campaigns across all relevant platforms, ensuring optimal timing, targeting, and budget allocation. Our team monitors performance in real-time and makes adjustments to maximize results.</p>
-                </div>
-                <div class="timeline-number">3</div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Analysis & Optimization</h3>
-                    <p>We provide detailed analytics and insights, continuously optimizing your campaigns for better performance. Our data-driven approach ensures your social media investment delivers measurable ROI and sustainable growth.</p>
-                </div>
-                <div class="timeline-number">4</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Enhanced Results Section -->
     <section class="results" id="results">
         <div class="results-container">
@@ -619,15 +618,12 @@
                         <div class="form-group">
                             <input type="text" id="name" name="name" required placeholder="Full Name">
                         </div>
-                        
                         <div class="form-group">
                             <input type="email" id="email" name="email" required placeholder="your.email@company.com">
                         </div>
-                        
                         <div class="form-group">
                             <input type="text" id="company" name="company" placeholder="Company Name">
                         </div>
-                        
                         <div class="form-group">
                             <select id="budget" name="budget" required>
                                 <option value="">Select Monthly Budget</option>
@@ -638,12 +634,11 @@
                                 <option value="25000+">$25,000+</option>
                             </select>
                         </div>
-                        
                         <div class="form-group">
                             <textarea id="goals" name="goals" placeholder="Tell us about your goals and challenges..."></textarea>
                         </div>
-                        
                         <button type="submit" class="submit-btn">Get Your Free Strategy Session</button>
+                        <div id="form-status" style="margin-top:1rem;font-weight:600;"></div>
                     </form>
                 </div>
                 
@@ -802,17 +797,6 @@
         </div>
     </footer>
 <script>
-    // Enhanced Custom Cursor
-    const cursor = document.getElementById('cursor');
-    const cursorFollower = document.getElementById('cursor-follower');
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        cursorFollower.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-    });
-
     // Subtle Social Media Particles Animation
     function createSocialParticles() {
         const particlesContainer = document.getElementById('social-particles');
@@ -924,30 +908,51 @@
     // Enhanced form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const submitBtn = e.target.querySelector('.submit-btn');
+            const statusDiv = document.getElementById('form-status');
             const originalText = submitBtn.textContent;
-            
-            // Animate button
             submitBtn.textContent = 'Sending Your Request...';
             submitBtn.disabled = true;
             submitBtn.style.background = 'var(--gradient-3)';
-            
-            // Simulate form submission
-            setTimeout(() => {
-                submitBtn.textContent = 'Strategy Session Booked! ✓';
-                submitBtn.style.background = '#10b981';
-                
-                // Reset after delay
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                    e.target.reset();
-                }, 3000);
-            }, 2000);
+            statusDiv.textContent = '';
+            const data = {
+                name: contactForm.name.value,
+                email: contactForm.email.value,
+                company: contactForm.company.value,
+                budget: contactForm.budget.value,
+                goals: contactForm.goals.value
+            };
+            try {
+                const res = await fetch('http://localhost:3001/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await res.json();
+                if (result.success) {
+                    submitBtn.textContent = 'Strategy Session Booked! ✓';
+                    submitBtn.style.background = '#10b981';
+                    statusDiv.textContent = 'Thank you! We have received your details.';
+                    statusDiv.style.color = '#10b981';
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                        contactForm.reset();
+                        statusDiv.textContent = '';
+                    }, 3000);
+                } else {
+                    throw new Error(result.message || 'Submission failed.');
+                }
+            } catch (err) {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+                statusDiv.textContent = 'There was an error. Please try again later.';
+                statusDiv.style.color = '#ef4444';
+            }
         });
     }
 
@@ -1027,6 +1032,16 @@
     window.addEventListener('scroll', throttle(() => {
         // Scroll-based animations can be added here
     }, 16)); // ~60fps
+
+    // Animated stepper for process section
+    document.addEventListener('DOMContentLoaded', function() {
+        const steps = document.querySelectorAll('.process-step');
+        steps.forEach((step, i) => {
+            setTimeout(() => {
+                step.classList.add('visible');
+            }, 300 + i * 250);
+        });
+    });
 </script>
 </body>
 </html>

@@ -120,6 +120,7 @@
                                 <textarea id="message" name="message" class="form-input" rows="6" placeholder="Describe your brand, current challenges, and what success looks like to you..." required></textarea>
                             </div>
                             <button type="submit" class="submit-btn" style="width: 100%;">Launch Your Transformation</button>
+                            <div id="form-status" style="margin-top:1rem;font-weight:600;"></div>
                         </form>
                     </div>
                 </div>
@@ -355,6 +356,62 @@
 
         window.addEventListener('resize', handleResponsiveGrid);
         handleResponsiveGrid();
+
+        // Enhanced AJAX form submission for contact page
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                const statusDiv = document.getElementById('form-status');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending Your Request...';
+                submitBtn.disabled = true;
+                submitBtn.style.background = 'var(--gradient-3)';
+                statusDiv.textContent = '';
+                // Combine first and last name
+                const name = contactForm.firstName.value + ' ' + contactForm.lastName.value;
+                // Collect checked goals
+                const goalsArr = Array.from(contactForm.querySelectorAll('input[name="goals"]:checked')).map(cb => cb.value);
+                const goals = goalsArr.join(', ') + (contactForm.message.value ? (' | ' + contactForm.message.value) : '');
+                const data = {
+                    name,
+                    email: contactForm.email.value,
+                    company: contactForm.company.value,
+                    budget: contactForm.budget.value,
+                    goals
+                };
+                try {
+                    const res = await fetch('http://localhost:3001/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    const result = await res.json();
+                    if (result.success) {
+                        submitBtn.textContent = 'Strategy Session Booked! ✓';
+                        submitBtn.style.background = '#10b981';
+                        statusDiv.textContent = 'Thank you! We have received your details.';
+                        statusDiv.style.color = '#10b981';
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.background = '';
+                            contactForm.reset();
+                            statusDiv.textContent = '';
+                        }, 3000);
+                    } else {
+                        throw new Error(result.message || 'Submission failed.');
+                    }
+                } catch (err) {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                    statusDiv.textContent = 'There was an error. Please try again later.';
+                    statusDiv.style.color = '#ef4444';
+                }
+            });
+        }
     </script>
 
 

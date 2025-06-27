@@ -1,121 +1,246 @@
 /* mobile.css - overrides for mobile responsiveness */
 @media (max-width: 768px) {
+  html, body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-size: 16px;
+    background: var(--primary-bg, #0a0a0a);
+  }
+
   /* Navigation */
+  .header {
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: var(--secondary-bg, #18181b);
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+  }
   .nav-container {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    width: 100vw;
   }
-
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
   .nav-links {
     flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    gap: 0.5rem;
+    width: 100vw;
+    background: var(--secondary-bg, #18181b);
+    position: absolute;
+    left: 0;
+    top: 3.5rem;
+    padding: 1rem 0;
+    display: none;
   }
-
   .nav-links a {
     display: block;
-    width: 100%;
-    padding: 0.75rem 1rem;
+    width: 100vw;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    text-align: left;
   }
-
   nav {
-    padding: 15px 20px; /* Reduced padding for mobile */
-    height: auto; /* Allow height to adjust with content */
+    padding: 0;
+    height: auto;
   }
+  /* Show nav on click (add JS for hamburger if needed) */
 
-  /* Ensure content below navbar is not blocked */
   body {
-    padding-top: 60px; /* Offset equal to navbar height + padding */
+    padding-top: 3.5rem;
   }
 
   /* Hero Section */
   .hero {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem 2rem 1rem;
     text-align: center;
+    background: var(--primary-bg, #0a0a0a);
   }
-
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
-
   .hero .subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
-
   .cta-button {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+  }
+  .hero-3d-container, .floating-phone {
+    display: none !important;
   }
 
-  .floating-phone {
-    display: none;
+  /* Services Section */
+  .services {
+    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
   }
-
-  /* Services */
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
   .services-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .service-flip-card {
+    min-width: 0;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-radius: 1.2rem;
+    overflow: hidden;
+  }
+  .flip-card-inner {
+    min-height: 260px;
+  }
+  .service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .flip-card-front, .flip-card-back {
+    padding: 1.2rem 1rem;
+  }
+  .service-cta {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    border-radius: 1.5rem;
   }
 
-  /* Transformation Grid */
+  /* Transformation Section */
+  .transformation {
+    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
+  }
   .transformation-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .transformation-item {
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.2rem 1rem;
   }
 
-  /* Contact Section */
-  .contact-split {
-    grid-template-columns: 1fr;
-    padding: 2rem 1rem;
+  /* Success Stories */
+  .stories-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .story-card {
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.2rem 1rem;
   }
 
-  .contact-left, .contact-right {
-    padding: 2rem 1rem;
+  /* Trusted Brands */
+  .brands-container {
+    padding: 1.5rem 0.5rem;
+  }
+  .brands-scroll {
+    display: flex;
+    gap: 1.2rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .brand-logo {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    background: #fff1;
+    border-radius: 1rem;
+    white-space: nowrap;
   }
 
   /* Testimonials */
-  .testimonials-track {
-    flex-direction: column;
-    gap: 2rem;
+  .testimonials {
+    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
   }
-
+  .testimonials-track {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
   .testimonial-slide {
     width: 100% !important;
     margin: 0 auto;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.2rem 1rem;
   }
 
-  /* Process Section */
-  .timeline-line {
-    left: 20px;
+  /* Results Section */
+  .results {
+    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
   }
-
-  .timeline-item {
-    flex-direction: column !important;
-    align-items: flex-start;
-    margin-left: 0;
-  }
-
-  .timeline-content {
-    margin: 0;
-    padding: 1.5rem;
-  }
-
-  .timeline-number {
-    position: static;
-    margin-bottom: 1rem;
-  }
-
-  /* Stats Section */
   .stats-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .stat-card {
+    padding: 1.2rem 1rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   }
 
-  .stat-card {
-    padding: 2rem 1rem;
+  /* Contact Section */
+  .contact {
+    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
+  }
+  .contact-split {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+  }
+  .contact-left, .contact-right {
+    padding: 1.2rem 1rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: 1.2rem;
+  }
+  .contact-3d-elements {
+    display: none;
   }
 
   /* Footer */
   footer {
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem 0.5rem 1rem 0.5rem;
+    font-size: 1rem;
+  }
+  .container {
+    padding: 0;
+  }
+
+  /* Modal */
+  .modal-content {
+    padding: 1.2rem 1rem;
+    border-radius: 1.2rem;
+    width: 95vw;
+    max-width: 98vw;
+    left: 2vw;
+    right: 2vw;
   }
 }

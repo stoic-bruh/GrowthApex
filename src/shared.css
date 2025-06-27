@@ -48,7 +48,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none;
+    cursor: auto;
     min-height: 100vh;
 }
 
@@ -71,19 +71,7 @@ img {
    Custom Cursor
    ============================================ */
 
-.cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-    mix-blend-mode: difference;
-    opacity: 1;
-}
-
+/* Remove .cursor and .cursor-follower classes */
 
 /* ============================================
    Social Media Particles

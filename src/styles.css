@@ -28,7 +28,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            cursor: none;
+            cursor: auto;
         }
 
         /* Enhanced Custom Cursor */
@@ -1399,4 +1399,113 @@
 
         .visible {
             opacity: 1;
+        }
+
+        /* === Animated 3D Gears Process Section === */
+        .process-gears-container {
+            padding: 4rem 1rem 2.5rem 1rem;
+            background: var(--secondary-bg, #18181b);
+            border-radius: 2rem;
+            margin: 3rem auto 2rem auto;
+            box-shadow: 0 4px 32px rgba(139,92,246,0.07);
+            max-width: 1100px;
+            text-align: center;
+        }
+        .process-gears-container .section-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .process-intro {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+        .gears-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        .gear-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1 1 180px;
+            min-width: 160px;
+            max-width: 220px;
+            margin: 0 auto;
+            background: var(--glass-bg, rgba(26,26,26,0.8));
+            border: 1px solid var(--glass-border, rgba(255,255,255,0.1));
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 16px rgba(139,92,246,0.08), 0 8px 32px rgba(16,185,129,0.04);
+            padding: 2rem 1.2rem 1.5rem 1.2rem;
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+        }
+        .gear-step:hover {
+            transform: translateY(-8px) scale(1.04) rotateZ(-2deg);
+            box-shadow: 0 8px 32px rgba(139,92,246,0.18), 0 16px 48px rgba(16,185,129,0.08);
+        }
+        .gear-svg {
+            margin-bottom: 1.2rem;
+            filter: drop-shadow(0 2px 8px rgba(139,92,246,0.10));
+            perspective: 300px;
+            transform-style: preserve-3d;
+        }
+        .gear1 svg { animation: gear-rotate 5s linear infinite; }
+        .gear2 svg { animation: gear-rotate-rev 7s linear infinite; }
+        .gear3 svg { animation: gear-rotate 6s linear infinite; }
+        .gear4 svg { animation: gear-rotate-rev 8s linear infinite; }
+        @keyframes gear-rotate {
+            0% { transform: rotateZ(0deg) scale3d(1,1,1); }
+            100% { transform: rotateZ(360deg) scale3d(1.04,1.04,1.04); }
+        }
+        @keyframes gear-rotate-rev {
+            0% { transform: rotateZ(0deg) scale3d(1,1,1); }
+            100% { transform: rotateZ(-360deg) scale3d(1.04,1.04,1.04); }
+        }
+        .gear-label {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+            color: var(--accent-color, #8b5cf6);
+            text-shadow: 0 2px 8px rgba(139,92,246,0.10);
+        }
+        .gear-desc {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            margin-top: 0.7rem;
+            min-height: 56px;
+        }
+        @media (max-width: 900px) {
+            .gears-flex {
+                gap: 1.2rem;
+            }
+            .gear-step {
+                min-width: 120px;
+                max-width: 180px;
+                padding: 1.2rem 0.7rem 1rem 0.7rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .gears-flex {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.5rem;
+            }
+            .gear-step {
+                max-width: 100%;
+                min-width: 0;
+                width: 100%;
+                margin: 0 auto;
+                padding: 1.2rem 1rem 1rem 1rem;
+            }
+            .process-gears-container {
+                padding: 2.5rem 0.5rem 1.5rem 0.5rem;
+                border-radius: 1.2rem;
+            }
         }

@@ -66,69 +66,6 @@ class GrowthApexApp {
     }
 
     /* ============================================
-       Custom Cursor
-       ============================================ */
-
-    initializeCursor() {
-        if (window.innerWidth <= 768) return; // Skip on mobile
-
-        const cursor = document.createElement('div');
-        const cursorFollower = document.createElement('div');
-        
-        cursor.className = 'cursor';
-        cursorFollower.className = 'cursor-follower';
-        
-        document.body.appendChild(cursor);
-        document.body.appendChild(cursorFollower);
-
-        let mouseX = 0;
-        let mouseY = 0;
-        let followerX = 0;
-        let followerY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px)`;
-            cursor.classList.add('active');
-            cursorFollower.classList.add('active');
-        });
-
-        document.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-            cursorFollower.classList.remove('active');
-        });
-
-        // Smooth follow animation
-        const animateFollower = () => {
-            followerX += (mouseX - followerX) * 0.1;
-            followerY += (mouseY - followerY) * 0.1;
-            
-            cursorFollower.style.transform = `translate(${followerX - 20}px, ${followerY - 20}px)`;
-            requestAnimationFrame(animateFollower);
-        };
-        animateFollower();
-
-        // Cursor interactions
-        const interactiveElements = 'a, button, .btn, .service-card, .glass-card';
-        
-        document.addEventListener('mouseover', (e) => {
-            if (e.target.matches(interactiveElements)) {
-                cursor.style.transform += ' scale(1.5)';
-                cursorFollower.style.transform += ' scale(1.2)';
-            }
-        });
-
-        document.addEventListener('mouseout', (e) => {
-            if (e.target.matches(interactiveElements)) {
-                cursor.style.transform = cursor.style.transform.replace(' scale(1.5)', '');
-                cursorFollower.style.transform = cursorFollower.style.transform.replace(' scale(1.2)', '');
-            }
-        });
-    }
-
-    /* ============================================
        Navigation
        ============================================ */
 
