@@ -10,41 +10,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="styles.css" >
+    <link rel="stylesheet" href="mobile_styles.css" media="(max-width: 768px)">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    
-
     <!-- Subtle Social Media Particles -->
     <div class="social-particles" id="social-particles"></div>
 
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <div class="logo"><a href="index.html">GrowthApex</a></div>
-            <ul class="nav-links">
-                <li><a href="#home" >Home</a></li>
-                <li><a href="about_us.html" >About us</a></li>
-                <li><a href="blog.html" >Blog</a></li>
-                <li><a href="case_studies.html" >Case Studies</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="logo.png" alt="GrowthApex Logo" style="height: 48px; width: 48px; display: inline-block; vertical-align: middle;" />
+                    <span style="font-size: 1.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">GrowthApex</span>
+                </a>
             </div>
-        </nav>
-        <div class="mobile-menu">
-            <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html" class="active">About Us</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="case_studies.html">Case Studies</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks" style="display:none; background:none; border:none; outline:none; box-shadow:none; padding:0.5rem; margin-left:auto; cursor:pointer; align-items:center; justify-content:center;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="menu">
+                <li><a href="index.html" role="menuitem">Home</a></li>
+                <li><a href="about_us.html" role="menuitem">About us</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="case_studies.html" role="menuitem">Case Studies</a></li>
+                <li><a href="contact.html" role="menuitem">Contact</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <!-- Page Hero -->
@@ -269,9 +263,59 @@
 
     <!-- Shared JavaScript -->
     <script src="shared.js"></script>
-
-
-
-
+    <script>
+    // Premium Mobile nav toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+    function closeNavLinks() {
+        navLinks.classList.remove('open');
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    }
+    function openNavLinks() {
+        navLinks.classList.add('open');
+        mobileMenuToggle.classList.add('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+    }
+    function toggleNavLinks() {
+        if (navLinks.classList.contains('open')) {
+            closeNavLinks();
+        } else {
+            openNavLinks();
+        }
+    }
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleNavLinks();
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeNavLinks);
+        });
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                closeNavLinks();
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeNavLinks();
+        });
+    }
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            mobileMenuToggle.style.display = 'flex';
+            navLinks.classList.remove('open');
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        } else {
+            mobileMenuToggle.style.display = 'none';
+            navLinks.classList.remove('open');
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+    }
+    window.addEventListener('resize', handleResize);
+    document.addEventListener('DOMContentLoaded', handleResize);
+    </script>
 </body>
 </html>

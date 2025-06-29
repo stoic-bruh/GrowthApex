@@ -10,41 +10,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="mobile_styles.css">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    
-
     <!-- Subtle Social Media Particles -->
     <div class="social-particles" id="social-particles"></div>
 
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <div class="logo"><a href="index.html">GrowthApex</a></div>
-            <ul class="nav-links">
-                <li><a href="#home" >Home</a></li>
-                <li><a href="about_us.html" >About us</a></li>
-                <li><a href="blog.html" >Blog</a></li>
-                <li><a href="case_studies.html" >Case Studies</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="logo.png" alt="GrowthApex Logo" style="height: 48px; width: 48px; display: inline-block; vertical-align: middle;" />
+                    <span style="font-size: 1.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">GrowthApex</span>
+                </a>
             </div>
-        </nav>
-        <div class="mobile-menu">
-            <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="case_studies.html" class="active">Case Studies</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks" style="display:none; background:none; border:none; outline:none; box-shadow:none; padding:0.5rem; margin-left:auto; cursor:pointer; align-items:center; justify-content:center;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="menu">
+                <li><a href="index.html#home" role="menuitem">Home</a></li>
+                <li><a href="about_us.html" role="menuitem">About us</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="case_studies.html" role="menuitem">Case Studies</a></li>
+                <li><a href="contact.html" role="menuitem">Contact</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <!-- Page Hero -->
@@ -121,7 +114,7 @@
                                 <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600;">Growth Hacking</span>
                             </div>
                             
-                            <button class="btn">View Full Case Study</button>
+                            <button class="cta-button">View Full Case Study</button>
                         </div>
 
                         <div>
@@ -202,7 +195,7 @@
                         <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">UGC</span>
                     </div>
                     
-                    <button class="btn-secondary" style="width: 100%;">View Case Study</button>
+                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
                 </div>
 
                 <!-- FinTech Case Study -->
@@ -239,7 +232,7 @@
                         <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Education</span>
                     </div>
                     
-                    <button class="btn-secondary" style="width: 100%;">View Case Study</button>
+                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
                 </div>
 
                 <!-- Healthcare Case Study -->
@@ -276,7 +269,7 @@
                         <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-yellow); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Storytelling</span>
                     </div>
                     
-                    <button class="btn-secondary" style="width: 100%;">View Case Study</button>
+                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
                 </div>
 
                 <!-- Food & Beverage Case Study -->
@@ -313,7 +306,7 @@
                         <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Scaling</span>
                     </div>
                     
-                    <button class="btn-secondary" style="width: 100%;">View Case Study</button>
+                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
                 </div>
 
                 <!-- Real Estate Case Study -->
@@ -350,7 +343,7 @@
                         <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Visual Content</span>
                     </div>
                     
-                    <button class="btn-secondary" style="width: 100%;">View Case Study</button>
+                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
                 </div>
 
                 <!-- Education Case Study -->
@@ -387,7 +380,7 @@
                         <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Student Success</span>
                     </div>
                     
-                    <button class="btn-secondary" style="width: 100%;">View Case Study</button>
+                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
                 </div>
 
             </div>
@@ -400,29 +393,29 @@
             <h2 class="section-title slide-up">Our Proven Process</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;">
                 
-                <div class="glass-card fade-in" style="text-align: center; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; width: 30px; height: 30px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.875rem;">1</div>
+                <div class="glass-card fade-in" style="text-align: center; position: relative; padding-top: 2rem;">
+                    <div style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem; z-index: 10;">1</div>
                     <div style="font-size: 3rem; margin-bottom: 1.5rem; margin-top: 1rem;">🔍</div>
                     <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Deep Discovery</h4>
                     <p style="color: var(--text-secondary); line-height: 1.6;">Comprehensive brand audit, competitor analysis, and market research to identify unique opportunities and growth potential.</p>
                 </div>
 
-                <div class="glass-card fade-in" style="text-align: center; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; width: 30px; height: 30px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.875rem;">2</div>
+                <div class="glass-card fade-in" style="text-align: center; position: relative; padding-top: 2rem;">
+                    <div style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem; z-index: 10;">2</div>
                     <div style="font-size: 3rem; margin-bottom: 1.5rem; margin-top: 1rem;">🎯</div>
                     <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Strategic Blueprint</h4>
                     <p style="color: var(--text-secondary); line-height: 1.6;">Custom growth strategy development with clear KPIs, target audience mapping, and content roadmap tailored to your goals.</p>
                 </div>
 
-                <div class="glass-card fade-in" style="text-align: center; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; width: 30px; height: 30px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.875rem;">3</div>
+                <div class="glass-card fade-in" style="text-align: center; position: relative; padding-top: 2rem;">
+                    <div style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem; z-index: 10;">3</div>
                     <div style="font-size: 3rem; margin-bottom: 1.5rem; margin-top: 1rem;">🚀</div>
                     <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Rapid Execution</h4>
                     <p style="color: var(--text-secondary); line-height: 1.6;">Fast-track implementation with agile testing, real-time optimization, and continuous iteration based on performance data.</p>
                 </div>
 
-                <div class="glass-card fade-in" style="text-align: center; position: relative;">
-                    <div style="position: absolute; top: -15px; left: 20px; width: 30px; height: 30px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.875rem;">4</div>
+                <div class="glass-card fade-in" style="text-align: center; position: relative; padding-top: 2rem;">
+                    <div style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem; z-index: 10;">4</div>
                     <div style="font-size: 3rem; margin-bottom: 1.5rem; margin-top: 1rem;">📈</div>
                     <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Scale & Optimize</h4>
                     <p style="color: var(--text-secondary); line-height: 1.6;">Systematic scaling of successful campaigns with advanced analytics, AI-driven optimization, and sustainable growth systems.</p>
@@ -440,7 +433,7 @@
                 <p class="subtitle fade-in" style="margin-bottom: 3rem;">Join the brands that chose transformation over stagnation. Your success story starts with a conversation.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                     <a href="contact.html" class="cta-button scale-in">Start Your Transformation</a>
-                    <button class="btn-secondary scale-in" onclick="window.open('case-study-full.pdf', '_blank')">Download Success Guide</button>
+                    <button class="cta-button" style="background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);" onclick="window.open('case-study-full.pdf', '_blank')">Download Success Guide</button>
                 </div>
             </div>
         </div>
@@ -461,7 +454,7 @@
                 <a href="contact.html" style="color: var(--text-secondary); transition: var(--transition);">Contact</a>
             </div>
             <div style="border-top: 1px solid var(--glass-border); padding-top: 2rem; color: var(--text-tertiary); font-size: 0.875rem;">
-                <p>&copy; 2024 GrowthApex. All rights reserved. | Powered by MiniMax Agent</p>
+                <p>&copy; 2024 GrowthApex. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -492,7 +485,7 @@
             
             caseStudyCards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
-                    const button = this.querySelector('.btn-secondary');
+                    const button = this.querySelector('.cta-button');
                     if (button) {
                         button.style.background = 'var(--gradient-1)';
                         button.style.color = 'var(--text-primary)';
@@ -501,7 +494,7 @@
                 });
                 
                 card.addEventListener('mouseleave', function() {
-                    const button = this.querySelector('.btn-secondary');
+                    const button = this.querySelector('.cta-button');
                     if (button) {
                         button.style.background = 'transparent';
                         button.style.color = 'var(--accent-color)';
@@ -556,9 +549,60 @@
 
         // Initialize counter animation
         document.addEventListener('DOMContentLoaded', animateCounters);
+
+        // Premium Mobile nav toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        function closeNavLinks() {
+            navLinks.classList.remove('open');
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+        function openNavLinks() {
+            navLinks.classList.add('open');
+            mobileMenuToggle.classList.add('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        }
+        function toggleNavLinks() {
+            if (navLinks.classList.contains('open')) {
+                closeNavLinks();
+            } else {
+                openNavLinks();
+            }
+        }
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleNavLinks();
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeNavLinks);
+            });
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    closeNavLinks();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeNavLinks();
+            });
+        }
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                mobileMenuToggle.style.display = 'flex';
+                navLinks.classList.remove('open');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                mobileMenuToggle.style.display = 'none';
+                navLinks.classList.remove('open');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize);
     </script>
-
-
 
 </body>
 </html>

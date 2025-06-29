@@ -1,246 +1,1804 @@
-/* mobile.css - overrides for mobile responsiveness */
-@media (max-width: 768px) {
-  html, body {
-    width: 100vw;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-size: 16px;
-    background: var(--primary-bg, #0a0a0a);
-  }
+/* ============================================
+   GrowthApex - Mobile-First Responsive Styles
+   Optimized for all mobile devices and browsers
+   Full implementation with all sections
+   ============================================ */
 
-  /* Navigation */
-  .header {
-    padding: 0.5rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    background: var(--secondary-bg, #18181b);
-    position: fixed;
-    width: 100vw;
-    z-index: 100;
-  }
-  .nav-container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    width: 100vw;
-  }
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100vw;
-    background: var(--secondary-bg, #18181b);
-    position: absolute;
-    left: 0;
-    top: 3.5rem;
-    padding: 1rem 0;
-    display: none;
-  }
-  .nav-links a {
-    display: block;
-    width: 100vw;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    text-align: left;
-  }
-  nav {
-    padding: 0;
-    height: auto;
-  }
-  /* Show nav on click (add JS for hamburger if needed) */
+/* ============================================
+   Mobile Breakpoints & Base Mobile Styles
+   ============================================ */
 
+/* Extra Small devices (phones, 320px and up) */
+@media (max-width: 575.98px) {
+  /* Base mobile optimizations */
+  html {
+      font-size: 14px; /* Slightly smaller base font for mobile */
+  }
+  
   body {
-    padding-top: 3.5rem;
+      font-size: 16px; /* Prevent zoom on iOS */
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+  }
+  
+  /* Disable custom cursor on mobile */
+  .cursor {
+      display: none !important;
+  }
+  
+  body {
+      cursor: auto !important;
+  }
+  
+  /* Optimize touch targets */
+  button, 
+  .btn, 
+  .cta-button,
+  .submit-btn,
+  .service-cta,
+  a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 12px 20px;
+      font-size: 16px; /* Prevent zoom on iOS */
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Improve form inputs for mobile */
+  input, 
+  select, 
+  textarea {
+      font-size: 16px; /* Prevent zoom on iOS */
+      padding: 12px 16px;
+      min-height: 44px;
+      touch-action: manipulation;
+  }
+  
+  /* Optimize scrolling */
+  * {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  html {
+      font-size: 15px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  html {
+      font-size: 16px;
+  }
+}
+
+/* ============================================
+ Mobile Navigation & Header - SCROLL HIDE + REDUCED WIDTH
+ ============================================ */
+
+@media (max-width: 768px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1000;
+    /* THINNER PADDING - Reduced from previous values */
+    padding: 0.4rem 1rem; /* Reduced vertical padding for thinner look */
+    min-height: 50px; /* Set minimum height for consistency */
+    transform: translateY(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                background 0.3s ease,
+                padding 0.3s ease;
   }
 
-  /* Hero Section */
-  .hero {
-    padding: 3rem 1rem 2rem 1rem;
-    text-align: center;
-    background: var(--primary-bg, #0a0a0a);
+  .header.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(24px);
+    /* Even thinner when scrolled */
+    padding: 0.3rem 1rem;
+    min-height: 45px;
   }
-  .hero h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+
+  /* HIDE ON SCROLL DOWN */
+  .header.hidden {
+    transform: translateY(-100%);
   }
-  .hero .subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+
+  /* SHOW ON SCROLL UP */
+  .header.visible {
+    transform: translateY(0);
   }
-  .cta-button {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 2rem;
-    width: 100%;
-    max-width: 320px;
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
     margin: 0 auto;
-    display: block;
-  }
-  .hero-3d-container, .floating-phone {
-    display: none !important;
-  }
-
-  /* Services Section */
-  .services {
-    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
-  }
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  .services-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .service-flip-card {
-    min-width: 0;
-    width: 100%;
-    margin: 0 auto;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    border-radius: 1.2rem;
-    overflow: hidden;
-  }
-  .flip-card-inner {
-    min-height: 260px;
-  }
-  .service-icon {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-  }
-  .flip-card-front, .flip-card-back {
-    padding: 1.2rem 1rem;
-  }
-  .service-cta {
-    width: 100%;
-    margin-top: 1rem;
-    font-size: 1rem;
-    padding: 0.8rem 0;
-    border-radius: 1.5rem;
-  }
-
-  /* Transformation Section */
-  .transformation {
-    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
-  }
-  .transformation-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .transformation-item {
-    border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 1.2rem 1rem;
-  }
-
-  /* Success Stories */
-  .stories-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .story-card {
-    border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 1.2rem 1rem;
-  }
-
-  /* Trusted Brands */
-  .brands-container {
-    padding: 1.5rem 0.5rem;
-  }
-  .brands-scroll {
-    display: flex;
-    gap: 1.2rem;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-  }
-  .brand-logo {
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    background: #fff1;
-    border-radius: 1rem;
-    white-space: nowrap;
-  }
-
-  /* Testimonials */
-  .testimonials {
-    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
-  }
-  .testimonials-track {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .testimonial-slide {
-    width: 100% !important;
-    margin: 0 auto;
-    border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    padding: 1.2rem 1rem;
-  }
-
-  /* Results Section */
-  .results {
-    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
-  }
-  .stats-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .stat-card {
-    padding: 1.2rem 1rem;
-    border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
-
-  /* Contact Section */
-  .contact {
-    padding: 2.5rem 0.5rem 1.5rem 0.5rem;
-  }
-  .contact-split {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     padding: 0;
+    height: 100%;
+    min-height: inherit;
   }
-  .contact-left, .contact-right {
-    padding: 1.2rem 1rem;
-    border-radius: 1.2rem;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    margin-bottom: 1.2rem;
+
+  .logo {
+    font-size: 1rem; /* Slightly smaller logo for thinner navbar */
+    font-weight: 700;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+    line-height: 1.2;
   }
-  .contact-3d-elements {
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  /* Mobile menu toggle - also thinner */
+  .mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 3px; /* Reduced gap for thinner look */
+    padding: 0.3rem; /* Reduced padding */
+    background: none;
+    border: none;
+    outline: none;
+    margin-left: auto;
+    z-index: 1001;
+    height: 30px; /* Fixed height for consistency */
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-menu-toggle span {
+    width: 20px; /* Slightly smaller lines */
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+
+  /* Full screen mobile menu */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    list-style: none;
+    display: flex;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links a {
+    color: #a1a1aa;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 0.8rem 1.6rem;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #ffffff;
+    background: rgba(139, 92, 246, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+  }
+
+  .nav-links a:hover::before,
+  .nav-links a.active::before {
+    width: 80%;
+  }
+}
+
+/* Extra small devices - even thinner */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.3rem 0.8rem; /* Even thinner for very small screens */
+    min-height: 45px;
+  }
+
+  .header.scrolled {
+    padding: 0.25rem 0.8rem;
+    min-height: 40px;
+  }
+
+  .logo {
+    font-size: 0.9rem; /* Smaller logo for very small screens */
+  }
+
+  .mobile-menu-toggle {
+    padding: 0.25rem;
+    height: 28px;
+    width: 28px;
+    gap: 2px;
+  }
+
+  .mobile-menu-toggle span {
+    width: 18px;
+    height: 2px;
+  }
+}
+@media (max-width: 768px) {
+  /* Ensure content doesn't hide behind thinner header */
+  .hero {
+    margin-top: 50px; /* Adjust for thinner header */
+    padding-top: 1rem;
+  }
+
+  .page-hero {
+    margin-top: 50px; /* Adjust for thinner header */
+    padding-top: 2rem;
+  }
+
+  /* Smooth transitions for all header states */
+  .header * {
+    transition: all 0.3s ease;
+  }
+
+  /* Ensure header stays above all content */
+  .header {
+    will-change: transform; /* Optimize for animations */
+  }
+
+  /* Prevent layout shift during hide/show */
+  body {
+    padding-top: 0; /* Remove if you had this */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    margin-top: 45px; /* Adjust for even thinner header on small screens */
+  }
+
+  .page-hero {
+    margin-top: 45px;
+  }
+}
+
+/* ============================================
+   Landscape Orientation Adjustments
+   ============================================ */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .header {
+    padding: 0.25rem 1rem; /* Extra thin in landscape */
+    min-height: 40px;
+  }
+
+  .header.scrolled {
+    padding: 0.2rem 1rem;
+    min-height: 35px;
+  }
+
+  .logo {
+    font-size: 0.9rem;
+  }
+
+  .mobile-menu-toggle {
+    height: 25px;
+    width: 25px;
+  }
+
+  .hero, .page-hero {
+    margin-top: 40px;
+  }
+}
+
+
+/* ============================================
+   Hero Section Mobile Styles
+ ============================================ */
+
+@media (max-width: 768px) {
+  .hero {
+      min-height: 80vh;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 60px; /* Account for fixed header */
+  }
+  
+  .hero-content {
+      max-width: 100%;
+  }
+
+  .hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+  }
+
+  .hero .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+  }
+  
+  .page-hero {
+      min-height: 60vh;
+      padding: 3rem 1rem;
+      text-align: center;
+      margin-top: 60px; /* Account for fixed header */
+  }
+  
+  .page-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+      font-size: 1.1rem;
+      line-height: 1.6;
+  }
+  
+  .hero-3d-container,
+  .floating-phone {
     display: none;
   }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 2rem 0.5rem 1rem 0.5rem;
-    font-size: 1rem;
+  .social-particles {
+      display: none;
   }
-  .container {
-    padding: 0;
+  
+  .social-particle {
+      display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1,
+  .page-title {
+      font-size: 2rem;
+  }
+  
+  .hero .subtitle,
+  .subtitle {
+      font-size: 1rem;
+  }
+  
+  .hero {
+      min-height: 70vh;
+  }
+  
+  .page-hero {
+      min-height: 50vh;
   }
 
-  /* Modal */
+  .header {
+      padding: 0.25rem 0.75rem; /* EVEN SMALLER padding for very small screens */
+  }
+
+  .nav-container {
+      max-width: 100%; /* Full width on very small screens */
+  }
+
+  .logo {
+      font-size: 0.9rem; /* EVEN SMALLER logo for very small screens */
+  }
+
+  .mobile-menu-toggle span {
+      width: 20px; /* EVEN SMALLER hamburger */
+      height: 2px;
+  }
+}
+
+/* ============================================
+   Section & Container Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section {
+      padding: 3rem 1rem;
+  }
+  
+  .section-alt {
+      padding: 3rem 1rem;
+  }
+  
+  .container {
+      padding: 0 1rem;
+      max-width: 100%;
+  }
+  
+  .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .section,
+  .section-alt {
+      padding: 2rem 1rem;
+  }
+  
+  .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+  }
+}
+
+/* ============================================
+   Cards & Components Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .glass-card {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 16px;
+  }
+  
+  .service-card {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+  }
+  
+  .service-flip-card {
+      height: auto;
+      min-height: 300px;
+  }
+  
+  .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+  }
+  
+  .service-flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      padding: 1.5rem;
+  }
+  
+  .flip-card-back {
+      transform: rotateY(180deg);
+  }
+  
+  .service-front h3,
+  .service-back h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+  }
+  
+  .service-front p {
+      font-size: 0.9rem;
+  }
+  
+  .service-features {
+      list-style: none;
+      padding: 0;
+  }
+  
+  .service-features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--glass-border);
+      font-size: 0.9rem;
+  }
+  
+  .service-features li::before {
+      content: "✓";
+      color: var(--accent-color);
+      font-weight: bold;
+      margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0;
+  }
+  
+  .services-grid .service-flip-card {
+      margin: 0;
+      height: auto;
+      min-height: 250px;
+  }
+}
+
+/* ============================================
+   Contact Form Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .contact-left form {
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+  }
+  
+  .form-group {
+      margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      font-size: 16px;
+      transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  }
+  
+  .phone-group {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+  }
+  
+  @media (max-width: 480px) {
+      .phone-group {
+          flex-direction: column;
+          align-items: stretch;
+      }
+  }
+  
+  .submit-btn {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  
+  .submit-btn:active {
+      transform: scale(0.98);
+  }
+}
+
+/* ============================================
+   Stories & Testimonials Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .stories-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0;
+  }
+  
+  .story-card {
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+  }
+  
+  .story-mockup {
+      display: none;
+  }
+  
+  .story-phone {
+      display: none;
+  }
+  
+  .story-content {
+      padding: 0;
+  }
+  
+  .story-metrics {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+  }
+  
+  .story-metric {
+      text-align: center;
+  }
+  
+  .story-metric-value {
+      font-size: 1.5rem;
+  }
+  
+  .story-metric-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-carousel {
+      padding: 0;
+      margin: 0;
+  }
+  
+  .testimonials-track {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+  
+  .testimonial-slide {
+      min-width: 100%;
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin: 0;
+  }
+  
+  .testimonial-content {
+      font-size: 1rem;
+      line-height: 1.6;
+  }
+  
+  .testimonial-author {
+      margin-top: 1rem;
+  }
+  
+  .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+  }
+  
+  .author-info h4 {
+      font-size: 1rem;
+  }
+  
+  .author-info p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+  }
+}
+
+/* ============================================
+   Typography Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+  }
+  
+  h2 {
+      font-size: 2rem;
+      line-height: 1.3;
+  }
+  
+  h3 {
+      font-size: 1.5rem;
+      line-height: 1.4;
+  }
+  
+  h4 {
+      font-size: 1.25rem;
+      line-height: 1.4;
+  }
+  
+  p {
+      font-size: 1rem;
+      line-height: 1.6;
+  }
+  
+  h1[style*="background: var(--gradient"],
+  h2[style*="background: var(--gradient"] {
+      background: var(--gradient-primary) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 2rem;
+  }
+  
+  h2 {
+      font-size: 1.75rem;
+  }
+  
+  h3 {
+      font-size: 1.25rem;
+  }
+  
+  h4 {
+      font-size: 1.1rem;
+  }
+}
+
+/* ============================================
+   Layout & Grid Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .container {
+      padding: 0 1rem;
+      max-width: 100%;
+  }
+  
+  [style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+  }
+  
+  [style*="display: flex"] {
+      flex-direction: column !important;
+  }
+  
+  .glass-card > div[style*="display: flex"] {
+      flex-direction: column !important;
+      gap: 1rem;
+  }
+  
+  .fade-in > div[style*="display: flex"] {
+      flex-direction: column !important;
+  }
+  
+  .fade-in > div[style*="display: flex"] > div {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 1rem !important;
+  }
+}
+
+/* ============================================
+   Animations & Effects Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .fade-in,
+  .slide-up,
+  .scale-in {
+      animation-duration: 0.6s;
+      animation-delay: 0.1s;
+  }
+  
+  .social-particle {
+      display: none;
+  }
+  
+  .glass-card:hover {
+      transform: none;
+  }
+  
+  .service-card:hover {
+      transform: none;
+  }
+  
+  @keyframes logoGlow {
+      0%, 100% {
+          text-shadow: 0 0 5px var(--accent-color);
+      }
+      50% {
+          text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+      }
+  }
+}
+
+/* ============================================
+   Accessibility & Focus Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+  }
+  
+  a, button, input, select, textarea {
+      -webkit-tap-highlight-color: transparent;
+  }
+  
+  .text-secondary {
+      color: var(--text-secondary);
+  }
+  
+  .text-tertiary {
+      color: var(--text-tertiary);
+  }
+  
+  .glass-card {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* ============================================
+   Performance & Optimization Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  * {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+  }
+  
+  html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+  }
+}
+
+/* ============================================
+   Landscape Orientation Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+      min-height: 60vh;
+  }
+  
+  .page-hero {
+      min-height: 40vh;
+  }
+  
+  .mobile-nav-links {
+      gap: 1rem;
+  }
+  
+  .mobile-nav-links a {
+      font-size: 1.25rem;
+      padding: 0.75rem 1.5rem;
+      min-height: 50px;
+  }
+}
+
+/* ============================================
+   Print Styles for Mobile
+   ============================================ */
+
+@media print and (max-width: 768px) {
+  .header,
+  .mobile-menu-toggle,
+  .mobile-menu {
+      display: none !important;
+  }
+  
+  .hero {
+      min-height: auto;
+      padding: 1rem;
+  }
+  
+  .glass-card {
+      box-shadow: none;
+      border: 1px solid #ccc;
+  }
+  
+  .section,
+  .services,
+  .process,
+  .results,
+  .contact,
+  .testimonials {
+      page-break-inside: avoid;
+  }
+}
+
+/* ============================================
+   High Contrast Mode Mobile Styles
+   ============================================ */
+
+@media (prefers-contrast: high) and (max-width: 768px) {
+  .glass-card {
+      border: 2px solid var(--text-primary);
+  }
+  
+  .form-input {
+      border: 2px solid var(--text-primary);
+  }
+  
+  .btn,
+  .cta-button,
+  .submit-btn {
+      border: 2px solid var(--text-primary);
+      background: var(--text-primary);
+      color: var(--primary-bg);
+  }
+}
+
+/* ============================================
+   Reduced Motion Mobile Styles
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+  }
+  
+  .social-particles {
+      display: none;
+  }
+  
+  .floating-phone {
+      animation: none;
+  }
+}
+
+/* ============================================
+   Process Section Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .process {
+      padding: 2rem 1rem;
+  }
+  
+  .process-wheel-container {
+      margin-bottom: 2rem;
+  }
+  
+  .process-wheel {
+      width: 280px;
+      height: 280px;
+      margin: 0 auto;
+      position: relative;
+  }
+  
+  .wheel-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: var(--glass-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--accent-color);
+      z-index: 10;
+  }
+  
+  @keyframes centerPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.1); }
+  }
+  
+  .center-icon {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+  }
+  
+  .center-text {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+  }
+  
+  .process-step {
+      position: absolute;
+      width: 120px;
+      text-align: center;
+      padding: 1rem;
+  }
+  
+  .step-1, .step-2, .step-3, .step-4 {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .step-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+  }
+  
+  .step-content h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+  }
+  
+  .step-content p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+  }
+  
+  .step-features {
+      list-style: none;
+      padding: 0;
+  }
+  
+  .step-features span {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+  }
+  
+  .step-number {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 24px;
+      height: 24px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+  }
+  
+  .process-connections {
+      display: none;
+  }
+  
+  .process-stats {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+  }
+  
+  .stat-item {
+      text-align: center;
+  }
+  
+  .stat-value {
+      font-size: 1.5rem;
+  }
+  
+  .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+  }
+}
+
+@media (max-width: 480px) {
+  .process {
+      padding: 1.5rem 1rem;
+  }
+  
+  .process-wheel {
+      width: 240px;
+      height: 240px;
+  }
+  
+  .wheel-center {
+      width: 60px;
+      height: 60px;
+  }
+  
+  .center-icon {
+      font-size: 1.25rem;
+  }
+  
+  .center-text {
+      font-size: 0.7rem;
+  }
+  
+  .process-step {
+      width: 100px;
+      padding: 0.75rem;
+  }
+  
+  .step-icon {
+      font-size: 1.5rem;
+  }
+  
+  .step-content h3 {
+      font-size: 0.9rem;
+  }
+  
+  .step-content p {
+      font-size: 0.7rem;
+  }
+  
+  .step-features span {
+      font-size: 0.6rem;
+  }
+  
+  .step-number {
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+  }
+  
+  .stat-item {
+      text-align: center;
+  }
+  
+  .stat-value {
+      font-size: 1.25rem;
+  }
+  
+  .stat-label {
+      font-size: 0.7rem;
+  }
+}
+
+/* ============================================
+   CSS Variables for Mobile
+   ============================================ */
+
+:root {
+  --mobile-padding: 1rem;
+  --mobile-margin: 1rem;
+  --mobile-border-radius: 12px;
+  --mobile-font-size-small: 0.875rem;
+  --mobile-font-size-base: 1rem;
+  --mobile-font-size-large: 1.125rem;
+  --mobile-font-size-xl: 1.25rem;
+  --mobile-font-size-2xl: 1.5rem;
+  --mobile-font-size-3xl: 2rem;
+  --mobile-font-size-4xl: 2.5rem;
+  --mobile-line-height-tight: 1.25;
+  --mobile-line-height-normal: 1.5;
+  --mobile-line-height-relaxed: 1.75;
+}
+
+/* ============================================
+   Additional Mobile Optimizations
+   ============================================ */
+
+@media (max-width: 768px) {
+  body, html {
+      overflow-x: hidden;
+      width: 100%;
+  }
+  
+  .container,
+  .section,
+  .hero,
+  .services,
+  .process,
+  .results,
+  .contact,
+  .testimonials,
+  .transformation {
+      overflow-x: visible !important;
+      box-sizing: border-box;
+  }
+  
+  .services-grid,
+  .stories-grid,
+  .testimonials-carousel {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+  }
+  
+  .modal {
+      padding: 1rem;
+  }
+  
   .modal-content {
-    padding: 1.2rem 1rem;
-    border-radius: 1.2rem;
-    width: 95vw;
-    max-width: 98vw;
-    left: 2vw;
-    right: 2vw;
+      width: 95%;
+      max-width: 400px;
+      padding: 1.5rem;
+      border-radius: 16px;
+  }
+  
+  .contact-split {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+  }
+  
+  .contact-left,
+  .contact-right {
+      width: 100%;
+  }
+  
+  .floating-phone,
+  .hero-3d-container {
+      display: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, span, div {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+  }
+  
+  .cta-button,
+  .btn,
+  .submit-btn {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      display: block;
+  }
+  
+  input, select, textarea {
+      font-size: 16px;
+      padding: 12px 16px;
+      min-height: 44px;
+  }
+  
+  table {
+      font-size: 0.875rem;
+      overflow-x: auto;
+      display: block;
+  }
+  
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .section,
+  .hero,
+  .services,
+  .process,
+  .results,
+  .contact,
+  .testimonials {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+  }
+  
+  .hero {
+      min-height: 60vh;
+  }
+  
+  .section,
+  .section-alt {
+      padding: 1.5rem 0.75rem;
+  }
+  
+  .glass-card,
+  .service-card,
+  .story-card,
+  .testimonial-slide {
+      padding: 1rem;
+      border-radius: 12px;
+  }
+  
+  .cta-button,
+  .btn,
+  .submit-btn {
+      padding: 12px 20px;
+      font-size: 1rem;
+  }
+  
+  .modal-content {
+      width: 98%;
+      padding: 1rem;
+  }
+  
+  .testimonial-slide {
+      padding: 1rem;
+  }
+  
+  .brand-logo {
+      max-width: 80px;
+  }
+  
+  .story-phone {
+      display: none;
+  }
+}
+
+/* ============================================
+   Touch & Interaction Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  button,
+  .btn,
+  .cta-button,
+  .submit-btn,
+  .service-cta,
+  a[role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 12px 20px;
+      font-size: 16px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+  }
+  
+  input,
+  select,
+  textarea {
+      font-size: 16px;
+      padding: 12px 16px;
+      min-height: 44px;
+      touch-action: manipulation;
+  }
+  
+  * {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+  }
+  
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+  }
+  
+  .glass-card:hover,
+  .service-card:hover,
+  .story-card:hover,
+  .testimonial-slide:hover {
+      transform: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cta-button:active,
+  .btn:active,
+  .submit-btn:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+  }
+}
+
+/* ============================================
+   Animation & Performance Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .fade-in,
+  .slide-up,
+  .scale-in {
+      animation-duration: 0.6s;
+      animation-delay: 0.1s;
+  }
+  
+  .social-particle {
+      display: none;
+  }
+  
+  .glass-card,
+  .service-card,
+  .story-card,
+  .testimonial-slide {
+      transition: all 0.3s ease;
+  }
+  
+  .glass-card:hover,
+  .service-card:hover,
+  .story-card:hover,
+  .testimonial-slide:hover {
+      transform: none;
+  }
+}
+
+/* ============================================
+   Accessibility & Focus Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .text-secondary {
+      color: var(--text-secondary);
+  }
+  
+  .text-tertiary {
+      color: var(--text-tertiary);
+  }
+  
+  .glass-card {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .form-input {
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+  }
+  
+  .btn,
+  .cta-button,
+  .submit-btn {
+      border: none;
+      background: var(--accent-color);
+      color: white;
+  }
+  
+  *:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   Landscape & Print Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+      min-height: 60vh;
+  }
+  
+  .page-hero {
+      min-height: 40vh;
+  }
+  
+  .mobile-nav-links {
+      gap: 1rem;
+  }
+  
+  .mobile-nav-links a {
+      font-size: 1.25rem;
+      padding: 0.75rem 1.5rem;
+      min-height: 50px;
+  }
+  
+  .process-wheel {
+      width: 200px;
+      height: 200px;
+  }
+  
+  .process-step {
+      width: 80px;
+      padding: 0.5rem;
+  }
+}
+
+@media print and (max-width: 768px) {
+  .header,
+  .mobile-menu-toggle,
+  .mobile-menu,
+  .nav-links {
+      display: none !important;
+  }
+  
+  .hero {
+      min-height: auto;
+      padding: 1rem;
+  }
+  
+  .glass-card {
+      box-shadow: none;
+      border: 1px solid #ccc;
+  }
+  
+  .section,
+  .services,
+  .process,
+  .results,
+  .contact,
+  .testimonials {
+      page-break-inside: avoid;
+  }
+  
+  .process-wheel {
+      display: none;
+  }
+  
+  .process-step {
+      position: static;
+      width: auto;
+      margin-bottom: 1rem;
+  }
+}
+
+/* ============================================
+   Accessibility & Performance Mobile Styles
+   ============================================ */
+
+@media (prefers-contrast: high) and (max-width: 768px) {
+  .glass-card {
+      border: 2px solid var(--text-primary);
+  }
+  
+  .form-input {
+      border: 2px solid var(--text-primary);
+  }
+  
+  .btn,
+  .cta-button,
+  .submit-btn {
+      border: 2px solid var(--text-primary);
+      background: var(--text-primary);
+      color: var(--primary-bg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+  *,
+  *::before,
+  *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+  }
+  
+  .social-particles,
+  .floating-phone {
+      display: none;
+  }
+  
+  .process-wheel {
+      animation: none;
+  }
+  
+  .process-step {
+      animation: none;
+  }
+}
+
+/* ============================================
+   Form & Input Mobile Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .phone-group {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+  }
+  
+  .phone-group select,
+  .phone-group input {
+      flex: 1;
+      min-height: 44px;
+      padding: 12px 16px;
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      font-size: 16px;
+      transition: all 0.3s ease;
+  }
+  
+  .phone-group select {
+      flex: 0 0 auto;
+      min-width: 80px;
+      max-width: 120px;
+  }
+  
+  .phone-group input {
+      flex: 1;
+      min-width: 0;
+  }
+}
+
+.mobile-menu,
+.mobile-nav-links,
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* ============================================
+   Desktop Navigation - Hide mobile toggle
+   ============================================ */
+
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+      display: none !important;
+  }
+  
+  .nav-links {
+      position: static;
+      width: auto;
+      height: auto;
+      background: none;
+      backdrop-filter: none;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2rem;
+      opacity: 1;
+      visibility: visible;
+      transition: none;
+      z-index: auto;
+      list-style: none;
+      display: flex;
+  }
+
+  .nav-links a {
+      color: #a1a1aa;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 500;
+      min-height: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+  }
+
+  .nav-container {
+      max-width: 1200px;
+      padding: 0 2rem;
+  }
+
+  .logo {
+      font-size: 1.5rem;
+  }
+
+  .header {
+      padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials, .testimonials-container, .testimonials-carousel, .testimonials-track {
+      padding: 0;
+      margin: 0;
+  }
+  
+  .stories-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0;
+  }
+  
+  .story-card {
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+  }
+  
+  .story-metrics, .modal-metrics {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+  }
+  
+  .testimonial-slide {
+      min-width: 100%;
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin: 0;
+  }
+  
+  .contact-split, .contact-left, .contact-right {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+  }
+  
+  .contact-left form {
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+  }
+  
+  .form-group {
+      margin-bottom: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      font-size: 16px;
+      transition: all 0.3s ease;
+  }
+  
+  .phone-group {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+  }
+  
+  @media (max-width: 480px) {
+      .phone-group {
+          flex-direction: column;
+          align-items: stretch;
+      }
+  }
+  
+  .submit-btn {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  
+  .submit-btn:active {
+      transform: scale(0.98);
+  }
+  
+  .testimonials, .success-stories, .contact {
+      padding: 2rem 1rem;
   }
 }

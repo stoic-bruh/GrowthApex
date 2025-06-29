@@ -10,41 +10,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="styles.css" media="(max-width: 768px)">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    
-
     <!-- Subtle Social Media Particles -->
     <div class="social-particles" id="social-particles"></div>
 
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
-            <div class="logo"><a href="index.html">GrowthApex</a></div>
-            <ul class="nav-links">
-                <li><a href="#home" >Home</a></li>
-                <li><a href="about_us.html" >About us</a></li>
-                <li><a href="blog.html" >Blog</a></li>
-                <li><a href="case_studies.html" >Case Studies</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="logo.png" alt="GrowthApex Logo" style="height: 48px; width: 48px; display: inline-block; vertical-align: middle;" />
+                    <span style="font-size: 1.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">GrowthApex</span>
+                </a>
             </div>
-        </nav>
-        <div class="mobile-menu">
-            <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="case_studies.html">Case Studies</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks" style="display:none; background:none; border:none; outline:none; box-shadow:none; padding:0.5rem; margin-left:auto; cursor:pointer; align-items:center; justify-content:center;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="menu">
+                <li><a href="index.html#home" role="menuitem">Home</a></li>
+                <li><a href="about_us.html" role="menuitem">About us</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="case_studies.html" role="menuitem">Case Studies</a></li>
+                <li><a href="contact.html" role="menuitem">Contact</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <!-- Page Hero -->
@@ -65,59 +58,41 @@
                     <div class="glass-card">
                         <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem; text-align: center;">Start the Conversation</h2>
                         <form id="contact-form">
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-                                <div class="form-group">
-                                    <label for="firstName" class="form-label">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" class="form-input" placeholder="Jane" required>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="your.email@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company" class="form-input" placeholder="Company Name">
+                            </div>
+                            <div class="form-group phone-group" style="display: flex; gap: 0.5rem; align-items: end;">
+                                <div style="flex: 0 0 120px;">
+                                    <label for="countryCode" style="font-size: 0.875rem; margin-bottom: 0.5rem; display: block;">Country</label>
+                                    <select id="countryCode" name="countryCode" required style="padding: 0.7rem 0.5rem; border-radius: 8px; border: 1px solid var(--glass-border); font-size: 0.9rem; width: 100%; background: var(--glass-bg); color: var(--text-primary);">
+                                        <option value="IN" selected>🇮🇳 +91</option>
+                                        <option value="US">🇺🇸 +1</option>
+                                        <option value="GB">🇬🇧 +44</option>
+                                        <option value="CA">🇨🇦 +1</option>
+                                        <option value="AU">🇦🇺 +61</option>
+                                        <option value="SG">🇸🇬 +65</option>
+                                        <option value="AE">🇦🇪 +971</option>
+                                        <option value="DE">🇩🇪 +49</option>
+                                        <option value="FR">🇫🇷 +33</option>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="lastName" class="form-label">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required>
-                                </div>
-                            </div>
-                            <div class="form-group" style="margin-bottom: 1.5rem;">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-input" placeholder="jane@company.com" required>
-                            </div>
-                            <div class="form-group" style="margin-bottom: 1.5rem;">
-                                <label for="company" class="form-label">Company</label>
-                                <input type="text" id="company" name="company" class="form-input" placeholder="Your Company Name">
-                            </div>
-                            <div class="form-group" style="margin-bottom: 1.5rem;">
-                                <label for="budget" class="form-label">Monthly Budget Range</label>
-                                <select id="budget" name="budget" class="form-input" style="cursor: pointer;">
-                                    <option value="">Select Budget Range</option>
-                                    <option value="5k-10k">$5,000 - $10,000</option>
-                                    <option value="10k-25k">$10,000 - $25,000</option>
-                                    <option value="25k-50k">$25,000 - $50,000</option>
-                                    <option value="50k-100k">$50,000 - $100,000</option>
-                                    <option value="100k+">$100,000+</option>
-                                </select>
-                            </div>
-                            <div class="form-group" style="margin-bottom: 1.5rem;">
-                                <label for="goals" class="form-label">Primary Goals</label>
-                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
-                                    <label style="display: flex; align-items: center; cursor: pointer;">
-                                        <input type="checkbox" name="goals" value="brand-awareness" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
-                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Brand Awareness</span>
-                                    </label>
-                                    <label style="display: flex; align-items: center; cursor: pointer;">
-                                        <input type="checkbox" name="goals" value="lead-generation" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
-                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Lead Generation</span>
-                                    </label>
-                                    <label style="display: flex; align-items: center; cursor: pointer;">
-                                        <input type="checkbox" name="goals" value="sales-growth" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
-                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Sales Growth</span>
-                                    </label>
-                                    <label style="display: flex; align-items: center; cursor: pointer;">
-                                        <input type="checkbox" name="goals" value="viral-content" style="margin-right: 0.5rem; accent-color: var(--accent-color);">
-                                        <span style="color: var(--text-secondary); font-size: 0.9rem;">Viral Content</span>
-                                    </label>
+                                <div style="flex: 1;">
+                                    <label for="phone" style="font-size: 0.875rem; margin-bottom: 0.5rem; display: block;">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required style="width: 100%; padding: 0.7rem 0.5rem; border-radius: 8px; border: 1px solid var(--glass-border); font-size: 0.9rem; background: var(--glass-bg); color: var(--text-primary);" autocomplete="tel" maxlength="11">
                                 </div>
                             </div>
-                            <div class="form-group" style="margin-bottom: 2rem;">
-                                <label for="message" class="form-label">Tell Us About Your Vision</label>
-                                <textarea id="message" name="message" class="form-input" rows="6" placeholder="Describe your brand, current challenges, and what success looks like to you..." required></textarea>
+                            <div class="form-group">
+                                <label for="goals">Tell us about your goals and challenges...</label>
+                                <textarea id="goals" name="goals" class="form-input" rows="6" placeholder="Tell us about your goals and challenges..." required></textarea>
                             </div>
                             <button type="submit" class="submit-btn" style="width: 100%;">Launch Your Transformation</button>
                             <div id="form-status" style="margin-top:1rem;font-weight:600;"></div>
@@ -271,7 +246,7 @@
                 <a href="contact.html" style="color: var(--text-secondary); transition: var(--transition);">Contact</a>
             </div>
             <div style="border-top: 1px solid var(--glass-border); padding-top: 2rem; color: var(--text-tertiary); font-size: 0.875rem;">
-                <p>&copy; 2024 GrowthApex. All rights reserved. | Powered by MiniMax Agent</p>
+                <p>&copy; 2024 GrowthApex. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -281,140 +256,117 @@
     
     <!-- Contact Form Enhancement -->
     <script>
-        // Add specific contact form enhancements
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contact-form');
             
-            // Add form validation feedback
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Collect form data
-                const formData = new FormData(form);
-                const goals = Array.from(form.querySelectorAll('input[name="goals"]:checked')).map(cb => cb.value);
-                
-                // Show success message
-                const submitBtn = form.querySelector('.submit-btn');
-                const originalText = submitBtn.textContent;
-                
-                submitBtn.textContent = 'Sending Your Vision...';
-                submitBtn.disabled = true;
-                
-                setTimeout(() => {
-                    submitBtn.textContent = '✅ Your Journey Begins!';
-                    submitBtn.style.background = 'var(--gradient-3)';
-                    
-                    setTimeout(() => {
-                        // Show detailed success message
-                        const successDiv = document.createElement('div');
-                        successDiv.style.cssText = `
-                            position: fixed;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            background: var(--glass-bg);
-                            backdrop-filter: blur(20px);
-                            border: 1px solid var(--glass-border);
-                            border-radius: var(--border-radius);
-                            padding: 3rem;
-                            text-align: center;
-                            z-index: 10000;
-                            max-width: 500px;
-                            width: 90%;
-                        `;
-                        
-                        successDiv.innerHTML = `
-                            <div style="color: var(--accent-color); font-size: 4rem; margin-bottom: 1.5rem;">🚀</div>
-                            <h3 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.5rem;">Your Transformation Starts Now!</h3>
-                            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Our growth strategists will contact you within 24 hours to discuss your vision and create a custom growth blueprint.</p>
-                            <button onclick="this.parentElement.remove()" style="background: var(--gradient-1); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600;">Close</button>
-                        `;
+            // Add responsive grid handling
+            function handleResponsiveGrid() {
+                const grid = document.querySelector('.contact-grid');
+                if (window.innerWidth <= 768) {
+                    grid.style.gridTemplateColumns = '1fr';
+                    grid.style.gap = '2rem';
+                } else {
+                    grid.style.gridTemplateColumns = '1fr 1fr';
+                    grid.style.gap = '4rem';
+                }
+            }
 
-                        document.body.appendChild(successDiv);
-
-                        // Reset form
-                        form.reset();
-                        submitBtn.textContent = originalText;
-                        submitBtn.style.background = 'var(--gradient-1)';
-                        submitBtn.disabled = false;
-                    }, 3000);
-                }, 2000);
-            });
+            window.addEventListener('resize', handleResponsiveGrid);
+            handleResponsiveGrid();
         });
 
-        // Add responsive grid handling
-        function handleResponsiveGrid() {
-            const grid = document.querySelector('.contact-grid');
-            if (window.innerWidth <= 768) {
-                grid.style.gridTemplateColumns = '1fr';
-                grid.style.gap = '2rem';
-            } else {
-                grid.style.gridTemplateColumns = '1fr 1fr';
-                grid.style.gap = '4rem';
+        // Phone formatting and validation
+        const phoneInput = document.getElementById('phone');
+        const countryCodeSelect = document.getElementById('countryCode');
+        const phonePatterns = {
+            IN: /^([6-9][0-9]{4})\s?([0-9]{5})$/, // 98765 43210
+            US: /^([2-9][0-9]{2})[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})$/, // 555-555-5555
+            GB: /^([1-9][0-9]{3,4})\s?([0-9]{6,7})$/, // 020 12345678
+            CA: /^([2-9][0-9]{2})[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})$/, // 555-555-5555
+            AU: /^([1-9][0-9]{3})\s?([0-9]{3})\s?([0-9]{3})$/, // 0412 345 678
+            SG: /^([689][0-9]{3})\s?([0-9]{4})$/, // 8123 4567
+            AE: /^([2-9][0-9]{1,2})\s?([0-9]{6,7})$/, // 50 1234567
+            DE: /^([1-9][0-9]{2,4})\s?([0-9]{6,8})$/, // 030 12345678
+            FR: /^([1-9][0-9]{1})\s?([0-9]{8})$/ // 06 12345678
+        };
+        function formatPhone(country, value) {
+            value = value.replace(/\D/g, '');
+            switch (country) {
+                case 'IN': return value.replace(/(\d{5})(\d{0,5})/, (m, a, b) => b ? `${a} ${b}` : a);
+                case 'US': case 'CA': return value.replace(/(\d{3})(\d{0,3})(\d{0,4})/, (m, a, b, c) => b ? (c ? `${a}-${b}-${c}` : `${a}-${b}`) : a);
+                case 'GB': return value.replace(/(\d{4,5})(\d{0,6,7})/, (m, a, b) => b ? `${a} ${b}` : a);
+                case 'AU': return value.replace(/(\d{4})(\d{0,3})(\d{0,3})/, (m, a, b, c) => b ? (c ? `${a} ${b} ${c}` : `${a} ${b}`) : a);
+                case 'SG': return value.replace(/(\d{4})(\d{0,4})/, (m, a, b) => b ? `${a} ${b}` : a);
+                case 'AE': return value.replace(/(\d{2,3})(\d{0,7})/, (m, a, b) => b ? `${a} ${b}` : a);
+                case 'DE': return value.replace(/(\d{3,5})(\d{0,8})/, (m, a, b) => b ? `${a} ${b}` : a);
+                case 'FR': return value.replace(/(\d{2})(\d{0,8})/, (m, a, b) => b ? `${a} ${b}` : a);
+                default: return value;
             }
         }
-
-        window.addEventListener('resize', handleResponsiveGrid);
-        handleResponsiveGrid();
-
-        // Enhanced AJAX form submission for contact page
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const submitBtn = contactForm.querySelector('.submit-btn');
-                const statusDiv = document.getElementById('form-status');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending Your Request...';
-                submitBtn.disabled = true;
-                submitBtn.style.background = 'var(--gradient-3)';
-                statusDiv.textContent = '';
-                // Combine first and last name
-                const name = contactForm.firstName.value + ' ' + contactForm.lastName.value;
-                // Collect checked goals
-                const goalsArr = Array.from(contactForm.querySelectorAll('input[name="goals"]:checked')).map(cb => cb.value);
-                const goals = goalsArr.join(', ') + (contactForm.message.value ? (' | ' + contactForm.message.value) : '');
-                const data = {
-                    name,
-                    email: contactForm.email.value,
-                    company: contactForm.company.value,
-                    budget: contactForm.budget.value,
-                    goals
-                };
-                try {
-                    const res = await fetch('http://localhost:3001/api/contact', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
-                    const result = await res.json();
-                    if (result.success) {
-                        submitBtn.textContent = 'Strategy Session Booked! ✓';
-                        submitBtn.style.background = '#10b981';
-                        statusDiv.textContent = 'Thank you! We have received your details.';
-                        statusDiv.style.color = '#10b981';
-                        setTimeout(() => {
-                            submitBtn.textContent = originalText;
-                            submitBtn.disabled = false;
-                            submitBtn.style.background = '';
-                            contactForm.reset();
-                            statusDiv.textContent = '';
-                        }, 3000);
-                    } else {
-                        throw new Error(result.message || 'Submission failed.');
-                    }
-                } catch (err) {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                    statusDiv.textContent = 'There was an error. Please try again later.';
-                    statusDiv.style.color = '#ef4444';
-                }
+        if (phoneInput && countryCodeSelect) {
+            phoneInput.addEventListener('input', function() {
+                const country = countryCodeSelect.value;
+                this.value = formatPhone(country, this.value);
+            });
+            countryCodeSelect.addEventListener('change', function() {
+                phoneInput.value = formatPhone(this.value, phoneInput.value);
+                phoneInput.placeholder = 'Phone Number';
             });
         }
+
+        // Premium Mobile nav toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        function closeNavLinks() {
+            navLinks.classList.remove('open');
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+        function openNavLinks() {
+            navLinks.classList.add('open');
+            mobileMenuToggle.classList.add('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        }
+        function toggleNavLinks() {
+            if (navLinks.classList.contains('open')) {
+                closeNavLinks();
+            } else {
+                openNavLinks();
+            }
+        }
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleNavLinks();
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeNavLinks);
+            });
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    closeNavLinks();
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeNavLinks();
+            });
+        }
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                mobileMenuToggle.style.display = 'flex';
+                navLinks.classList.remove('open');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                mobileMenuToggle.style.display = 'none';
+                navLinks.classList.remove('open');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize);
     </script>
-
-
 
 </body>
 </html>

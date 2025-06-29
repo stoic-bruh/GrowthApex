@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Test - GrowthApex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="mobile_styles.css" media="(max-width: 768px)">
+    <style>
+        body {
+            height: 300vh;
+            background: linear-gradient(to bottom, #0a0a0a, #1a1a1a, #0a0a0a);
+        }
+        .test-content {
+            padding-top: 100px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="logo.png" alt="GrowthApex Logo" style="height: 48px; width: 48px; display: inline-block; vertical-align: middle;" />
+                    <span style="font-size: 1.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">GrowthApex</span>
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks" role="menu">
+                <li><a href="index.html" role="menuitem">Home</a></li>
+                <li><a href="about_us.html" role="menuitem">About us</a></li>
+                <li><a href="blog.html" role="menuitem">Blog</a></li>
+                <li><a href="case_studies.html" role="menuitem">Case Studies</a></li>
+                <li><a href="contact.html" role="menuitem">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="test-content">
+        <h1>Navbar Test Page</h1>
+        <p>Scroll down to test navbar hiding/showing behavior</p>
+        <p>Scroll up to see navbar reappear</p>
+    </div>
+
+    <!-- Shared JavaScript -->
+    <script src="shared.js"></script>
+    <script>
+        console.log('🧪 Test page loaded');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 DOM Content Loaded in test page');
+            const header = document.querySelector('.header');
+            console.log('🧪 Header element:', header);
+            console.log('🧪 Header classes:', header ? header.className : 'No header found');
+        });
+    </script>
+</body>
+</html> 
