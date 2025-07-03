@@ -11,6 +11,169 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
     <link rel="stylesheet" href="mobile_styles.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            animation: modalFadeIn 0.3s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
+            
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+        .modal-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            width: 98vw;
+            max-width: 1000px;
+            max-height: 95vh;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
+            margin: auto;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5px 6px 0 rgba(139,92,246,0.08);
+        }
+        .modal-content > * {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
+        }
+        .modal-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+        }
+        .modal-content h3 {
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .modal-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .modal-content ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        .modal-content p {
+            font-size: 1.08rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .modal-content blockquote {
+            margin: 2rem 0;
+            padding: 1.2rem 1.5rem;
+            border-radius: 14px;
+            background: rgba(139, 92, 246, 0.08);
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.08rem;
+        }
+        .modal-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 2.5rem 0;
+            padding: 1.2rem 0.5rem;
+            background: rgba(139, 92, 246, 0.04);
+            border-radius: 16px;
+            border: 1px solid rgba(139, 92, 246, 0.12);
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        .modal-metric {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+            padding: 1.2rem 0.5rem;
+            margin: 0;
+            background: rgba(139, 92, 246, 0.09);
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.13);
+            box-shadow: 0 2px 8px 0 rgba(139,92,246,0.04);
+            text-align: center;
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .modal-metric:hover {
+            background: rgba(139, 92, 246, 0.16);
+            box-shadow: 0 4px 16px 0 rgba(139,92,246,0.10);
+        }
+        .modal-metric-value {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.13);
+        }
+        .modal-metric-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 900px) {
+            .modal-content {
+                max-width: 98vw;
+                padding: 1.5rem 0.7rem;
+            }
+            .modal-metrics {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                padding: 0.7rem 0.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .modal-content {
+                max-width: 99vw;
+                padding: 1rem 0.2rem;
+                border-radius: 10px;
+            }
+            .modal-metrics {
+                grid-template-columns: 1fr;
+                gap: 0.7rem;
+                padding: 0.5rem 0.1rem;
+            }
+            .modal-metric {
+                padding: 0.7rem 0.1rem;
+            }
+            .modal-content h2 {
+                font-size: 1.3rem;
+            }
+            .modal-content h3 {
+                font-size: 1.1rem;
+            }
+            .modal-content p, .modal-content blockquote, .modal-content ul li {
+                font-size: 0.97rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Subtle Social Media Particles -->
@@ -55,7 +218,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 4rem;">
                 
                 <div class="glass-card fade-in" style="text-align: center;">
-                    <div style="font-size: 3rem; font-weight: 900; color: var(--accent-color); margin-bottom: 0.5rem;">500M+</div>
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--accent-color); margin-bottom: 0.5rem;">5M+</div>
                     <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Total Impressions</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem;">Generated across all campaigns</p>
                 </div>
@@ -67,15 +230,15 @@
                 </div>
 
                 <div class="glass-card fade-in" style="text-align: center;">
-                    <div style="font-size: 3rem; font-weight: 900; color: var(--accent-green); margin-bottom: 0.5rem;">15M+</div>
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--accent-green); margin-bottom: 0.5rem;">50k+</div>
                     <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">New Followers</h4>
                     <p style="color: var(--text-secondary); font-size: 0.9rem;">Organic growth generated</p>
                 </div>
 
                 <div class="glass-card fade-in" style="text-align: center;">
-                    <div style="font-size: 3rem; font-weight: 900; color: var(--accent-yellow); margin-bottom: 0.5rem;">$127M</div>
-                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Revenue Generated</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Total client revenue impact</p>
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--accent-yellow); margin-bottom: 0.5rem;">100+</div>
+                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Leads Generated</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Total clients attracted</p>
                 </div>
 
                 <div class="glass-card fade-in" style="text-align: center;">
@@ -95,26 +258,25 @@
             <div style="margin-top: 4rem;">
                 <div class="glass-card fade-in" style="padding: 3rem;">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;" class="featured-case-grid">
-                        
                         <div>
                             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                                <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: white;">NX</div>
+                                <div style="width: 80px; height: 80px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem; color: white;">SC</div>
                                 <div>
-                                    <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">NexTech Solutions</h3>
-                                    <p style="color: var(--text-secondary);">B2B SaaS Platform</p>
+                                    <h3 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Seekho Computer</h3>
+                                    <p style="color: var(--text-secondary);">Online Coaching Institute</p>
                                 </div>
                             </div>
                             
                             <h4 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">From Startup to Industry Leader</h4>
-                            <p style="color: var(--text-secondary); font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">NexTech came to us with zero social media presence and ambitious growth goals. In 12 months, we transformed them into the most recognized brand in their industry.</p>
+                            <p style="color: var(--text-secondary); font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">came to us with zero social media presence and ambitious growth goals. In 12 months, we transformed them into the most recognized brand in their industry.</p>
                             
                             <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                                <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600;">B2B SaaS</span>
+                                <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600;">Viral Content</span>
                                 <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600;">Lead Generation</span>
                                 <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.5rem 1rem; border-radius: 25px; font-size: 0.875rem; font-weight: 600;">Growth Hacking</span>
                             </div>
                             
-                            <button class="cta-button">View Full Case Study</button>
+                            <button class="cta-button" onclick="openCaseStudyModal('seekho')">View Full Case Study</button>
                         </div>
 
                         <div>
@@ -124,11 +286,11 @@
                                     <p style="color: var(--text-secondary); font-size: 0.9rem;">Lead Growth</p>
                                 </div>
                                 <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: var(--border-radius); text-align: center; border: 1px solid var(--glass-border);">
-                                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent-pink); margin-bottom: 0.5rem;">$8.2M</div>
-                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">ARR Generated</p>
+                                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent-pink); margin-bottom: 0.5rem;">12M</div>
+                                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Veiws Generated</p>
                                 </div>
                                 <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: var(--border-radius); text-align: center; border: 1px solid var(--glass-border);">
-                                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent-green); margin-bottom: 0.5rem;">450K</div>
+                                    <div style="font-size: 2rem; font-weight: 900; color: var(--accent-green); margin-bottom: 0.5rem;">20K</div>
                                     <p style="color: var(--text-secondary); font-size: 0.9rem;">New Followers</p>
                                 </div>
                                 <div style="background: var(--glass-bg); padding: 1.5rem; border-radius: var(--border-radius); text-align: center; border: 1px solid var(--glass-border);">
@@ -142,8 +304,8 @@
                                 <div style="display: flex; align-items: center; gap: 0.75rem;">
                                     <div style="width: 40px; height: 40px; background: var(--gradient-1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 0.875rem;">MS</div>
                                     <div>
-                                        <p style="color: var(--text-primary); font-weight: 600; font-size: 0.9rem;">Michael Singh</p>
-                                        <p style="color: var(--text-secondary); font-size: 0.8rem;">CEO, NexTech Solutions</p>
+                                        <p style="color: var(--text-primary); font-weight: 600; font-size: 0.9rem;">Ashutosh Singh</p>
+                                        <p style="color: var(--text-secondary); font-size: 0.8rem;">CEO, Seekho Computer</p>
                                     </div>
                                 </div>
                             </div>
@@ -162,226 +324,158 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 4rem;">
                 
                 <!-- E-commerce Case Study -->
-                <div class="glass-card fade-in">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">EF</div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">EcoFashion Co.</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem;">Sustainable Fashion</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Viral Fashion Revolution</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Transformed eco-fashion startup into viral sensation with user-generated content strategy and influencer partnerships.</p>
-                    
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">12M</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Viral Views</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">450%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Sales Growth</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">2.1M</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">New Customers</div>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">E-commerce</span>
-                        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Viral Content</span>
-                        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">UGC</span>
-                    </div>
-                    
-                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
-                </div>
+                <div class="glass-card fade-in"> 
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="width: 60px; height: 60px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">SD</div>
+        <div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Street Dog Lover</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Animal Welfare</p>
+        </div>
+    </div>
+    
+    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Turning Passion Into a Movement</h4>
+    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">We turned their rescue mission into a viral cause, helping their reels hit over 1M views and building a loyal, engaged community of animal lovers.</p>
+    
+    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">1.2M</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Top Reel Views</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">300%</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Follower Growth</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">80K</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Monthly Reach</div>
+        </div>
+    </div>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Animal Welfare</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Viral Reels</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Community</span>
+    </div>
+    
+    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;" onclick="openCaseStudyModal('streetdog')">View Case Study</button>
+</div>
+
 
                 <!-- FinTech Case Study -->
-                <div class="glass-card fade-in">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; background: var(--gradient-3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">FP</div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">FinPay Pro</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem;">FinTech Startup</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Trust Through Transparency</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Built trust and credibility in competitive FinTech space through thought leadership and educational content strategy.</p>
-                    
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">1,200%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">App Downloads</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">$15M</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Series A Raised</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">89%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">User Retention</div>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                        <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">FinTech</span>
-                        <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Trust Building</span>
-                        <span style="background: rgba(16, 185, 129, 0.1); color: var(--accent-green); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Education</span>
-                    </div>
-                    
-                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
-                </div>
+               <div class="glass-card fade-in"> 
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="width: 60px; height: 60px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">CK</div>
+        <div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">The Car Knowledge</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Automotive Education</p>
+        </div>
+    </div>
+    
+    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Educating & Entertaining Auto Lovers</h4>
+    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Built a niche automotive brand combining technical know-how with short-form entertainment. Boosted watch time, retention, and car community engagement.</p>
+    
+    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">150K</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">New Subscribers</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">70%</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Watch Time Boost</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">4.2%</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Conversion Rate</div>
+        </div>
+    </div>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Automotive</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">YouTube Shorts</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Retention</span>
+    </div>
+    
+    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;" onclick="openCaseStudyModal('carknowledge')">View Case Study</button>
+</div>
+
 
                 <!-- Healthcare Case Study -->
-                <div class="glass-card fade-in">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #ea580c); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">HI</div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">HealthIQ</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem;">Digital Health Platform</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Wellness Community Building</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Created engaged health community through authentic storytelling and expert-led educational content campaigns.</p>
-                    
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-yellow);">750K</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Community Size</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-yellow);">320%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Engagement Rate</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-yellow);">94%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">User Satisfaction</div>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                        <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-yellow); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Healthcare</span>
-                        <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-yellow); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Community</span>
-                        <span style="background: rgba(245, 158, 11, 0.1); color: var(--accent-yellow); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Storytelling</span>
-                    </div>
-                    
-                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
-                </div>
+                <div class="glass-card fade-in"> 
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="width: 60px; height: 60px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">SA</div>
+        <div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">ShareAndAware</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Social Awareness</p>
+        </div>
+    </div>
+    
+    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Making Education Relatable & Shareable</h4>
+    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Launched from scratch, their content hit 100K+ views in the first month. Smart carousels and educational visuals helped them build instant traction.</p>
+    
+    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">100K+</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Views (Month 1)</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">6x</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Save Rate</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">350%</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Engagement Spike</div>
+        </div>
+    </div>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Infographics</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Instagram Carousels</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Awareness</span>
+    </div>
+    
+    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;" onclick="openCaseStudyModal('shareaware')">View Case Study</button>
+</div>
+
 
                 <!-- Food & Beverage Case Study -->
-                <div class="glass-card fade-in">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #ec4899); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">FB</div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">FreshBites</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem;">Food Delivery Startup</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Local to National Expansion</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Scaled local food delivery service to national brand through location-based content and influencer partnerships.</p>
-                    
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-color);">50+</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">New Cities</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-color);">890%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Order Growth</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-color);">3.2M</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">App Users</div>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                        <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Food & Beverage</span>
-                        <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Local Marketing</span>
-                        <span style="background: rgba(139, 92, 246, 0.1); color: var(--accent-color); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Scaling</span>
-                    </div>
-                    
-                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
-                </div>
+                <div class="glass-card fade-in"> 
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="width: 60px; height: 60px; background: var(--gradient-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">TA</div>
+        <div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">TCK Artworks</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Creative Studio</p>
+        </div>
+    </div>
+    
+    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Growing an Artist into a Brand</h4>
+    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">We helped transform their art content into a brand experience. By focusing on process videos and visual storytelling, they saw steady growth and commission inquiries.</p>
+    
+    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">250%</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Follower Growth</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">92%</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Content Save Rate</div>
+        </div>
+        <div style="text-align: center;">
+            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-pink);">30+</div>
+            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Commissions Closed</div>
+        </div>
+    </div>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Art Studio</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Process Videos</span>
+        <span style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Instagram Growth</span>
+    </div>
+    
+    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;" onclick="openCaseStudyModal('tckart')">View Case Study</button>
+</div>
 
-                <!-- Real Estate Case Study -->
-                <div class="glass-card fade-in">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10b981, #06b6d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">LP</div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">LuxeProperties</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem;">Luxury Real Estate</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">High-End Digital Presence</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Elevated luxury real estate brand through sophisticated visual storytelling and exclusive content strategy.</p>
-                    
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">$45M</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Sales Generated</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">180%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Lead Quality</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">95%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Close Rate</div>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                        <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Real Estate</span>
-                        <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Luxury</span>
-                        <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Visual Content</span>
-                    </div>
-                    
-                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
-                </div>
 
-                <!-- Education Case Study -->
-                <div class="glass-card fade-in">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem; color: white;">SA</div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">SkillAcademy</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem;">Online Education</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">EdTech Community Growth</h4>
-                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">Built thriving learning community through value-first content and student success story amplification.</p>
-                    
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">125K</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Students Enrolled</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">940%</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Course Completion</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-blue);">4.9/5</div>
-                            <div style="font-size: 0.8rem; color: var(--text-tertiary);">Satisfaction Score</div>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                        <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Education</span>
-                        <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Community</span>
-                        <span style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.75rem; font-weight: 600;">Student Success</span>
-                    </div>
-                    
-                    <button class="cta-button" style="width: 100%; font-size: 0.9rem; padding: 0.8rem 1.5rem;">View Case Study</button>
-                </div>
+
 
             </div>
         </div>
@@ -439,6 +533,266 @@
         </div>
     </section>
 
+    <!-- Case Study Modals -->
+    
+    <!-- NexTech Solutions Modal -->
+  <div id="streetdog" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCaseStudyModal()">&times;</span>
+        <h2>Street Dog Lover: From Local Rescues to Viral Impact</h2>
+        <p>Street Dog Lover came to us with a mission: rescue, rehabilitate, and raise awareness. We turned their field videos into viral stories that connected deeply with audiences across India and beyond.</p>
+        
+        <div class="modal-metrics">
+            <div class="modal-metric">
+                <span class="modal-metric-value">1.2M</span>
+                <span class="modal-metric-label">Top Reel Views</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">300%</span>
+                <span class="modal-metric-label">Follower Growth</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">80K</span>
+                <span class="modal-metric-label">Monthly Reach</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">92%</span>
+                <span class="modal-metric-label">Viewer Sentiment</span>
+            </div>
+        </div>
+        
+        <h3>Strategy Implementation:</h3>
+        <ul>
+            <li>Emotional storytelling via Instagram Reels</li>
+            <li>Consistent daily posting and behind-the-scenes rescue content</li>
+            <li>Use of trending music and captions for relatability</li>
+            <li>Engagement with animal rights influencers and communities</li>
+            <li>Localized hashtags to build grassroots visibility</li>
+            <li>Community-driven call-to-actions (adopt, donate, volunteer)</li>
+        </ul>
+        
+        <h3>Key Results:</h3>
+        <ul>
+            <li>Multiple viral reels crossing 1M views organically</li>
+            <li>Built a dedicated Instagram following of dog lovers across cities</li>
+            <li>Consistent DM engagement and adoption interest from reels</li>
+            <li>Noticed by major pet NGOs and featured in online publications</li>
+        </ul>
+        
+        <blockquote>
+            "We never imagined our rescue work could reach this far. GrowthApex helped us share stories that actually changed lives — human and canine alike." - Team, Street Dog Lover
+        </blockquote>
+    </div>
+</div>
+
+
+    <!-- EcoFashion Co. Modal -->
+ <div id="carknowledge" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCaseStudyModal()">&times;</span>
+        <h2>The Car Knowledge: Educating Car Enthusiasts at Scale</h2>
+        <p>The Car Knowledge was built for passionate auto enthusiasts, but lacked a consistent strategy to reach a broader audience. We brought in creative formats and optimized video delivery to turn them into a recognized content hub in the automotive space.</p>
+        
+        <div class="modal-metrics">
+            <div class="modal-metric">
+                <span class="modal-metric-value">150K</span>
+                <span class="modal-metric-label">New Subscribers</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">70%</span>
+                <span class="modal-metric-label">Watch Time Boost</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">4.2%</span>
+                <span class="modal-metric-label">Conversion Rate</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">3X</span>
+                <span class="modal-metric-label">Viewer Retention</span>
+            </div>
+        </div>
+        
+        <h3>Strategy Implementation:</h3>
+        <ul>
+            <li>Topic research tailored to beginner and intermediate car audiences</li>
+            <li>Daily short-form videos optimized for YouTube Shorts and Instagram</li>
+            <li>Visual hooks and voiceovers to improve watch completion</li>
+            <li>In-post quizzes and facts to boost engagement and saves</li>
+            <li>Cross-promotion with auto pages and car events</li>
+            <li>Use of meme-style narration to capture Gen Z and young adult audiences</li>
+        </ul>
+        
+        <h3>Key Results:</h3>
+        <ul>
+            <li>Grew from niche blog to 150K+ subscriber base</li>
+            <li>Average video retention increased by 3X within 3 months</li>
+            <li>Community members started tagging friends in comments daily</li>
+            <li>Received shout-outs from industry creators and auto influencers</li>
+        </ul>
+        
+        <blockquote>
+            "We always knew cars. But GrowthApex helped us make others care too. The response has been insane." - The Car Knowledge Team
+        </blockquote>
+    </div>
+</div>
+
+
+    <!-- FinPay Pro Modal -->
+  <div id="shareaware" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCaseStudyModal()">&times;</span>
+        <h2>ShareAndAware: Awareness That Actually Reaches People</h2>
+        <p>ShareAndAware launched with one mission — make important topics understandable, visual, and worth sharing. In just 30 days, their educational carousels reached over 100K views with explosive engagement from students, creators, and educators alike.</p>
+        
+        <div class="modal-metrics">
+            <div class="modal-metric">
+                <span class="modal-metric-value">100K+</span>
+                <span class="modal-metric-label">Views (Month 1)</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">6x</span>
+                <span class="modal-metric-label">Save Rate</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">350%</span>
+                <span class="modal-metric-label">Engagement Spike</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">5x</span>
+                <span class="modal-metric-label">Share Growth</span>
+            </div>
+        </div>
+        
+        <h3>Strategy Implementation:</h3>
+        <ul>
+            <li>Designed high-impact carousel templates for Instagram</li>
+            <li>Topic clustering using keywords from trending headlines</li>
+            <li>Added micro-copywriting and CTA on every slide</li>
+            <li>Optimized posts for saves, shares, and comments — not just likes</li>
+            <li>Scheduled reels with summary facts for algorithm favor</li>
+            <li>Partnered with small educators and creators to exchange stories</li>
+        </ul>
+        
+        <h3>Key Results:</h3>
+        <ul>
+            <li>Crossed 100K organic reach in first month</li>
+            <li>Average save rate reached 6x the normal benchmark</li>
+            <li>Built a small but extremely engaged micro-community</li>
+            <li>Started being reposted by creators with 10x their following</li>
+        </ul>
+        
+        <blockquote>
+            "We didn’t want to be another preachy page. GrowthApex made our message scroll-stopping — and genuinely impactful." - ShareAndAware Team
+        </blockquote>
+    </div>
+</div>
+
+
+    <!-- HealthIQ Modal -->
+    <div id="tckart" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCaseStudyModal()">&times;</span>
+        <h2>TCK Artworks: From Hidden Talent to Recognized Brand</h2>
+        <p>TCK Artworks was a low-profile but highly skilled artist struggling to grow an online presence. With the right strategy and content rhythm, we transformed their page into a creative showcase that now pulls consistent commissions and engagement.</p>
+        
+        <div class="modal-metrics">
+            <div class="modal-metric">
+                <span class="modal-metric-value">250%</span>
+                <span class="modal-metric-label">Follower Growth</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">92%</span>
+                <span class="modal-metric-label">Save Rate</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">30+</span>
+                <span class="modal-metric-label">Commissions Closed</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">4.8★</span>
+                <span class="modal-metric-label">Avg. Client Rating</span>
+            </div>
+        </div>
+        
+        <h3>Strategy Implementation:</h3>
+        <ul>
+            <li>Introduced weekly art process videos with trending music</li>
+            <li>Created “client stories” that showed before/after pieces</li>
+            <li>Focused on close-up reels and timelapse content to increase watch time</li>
+            <li>Optimized bio and link flow to convert Instagram traffic into DMs</li>
+            <li>Built a pinned highlight strategy showcasing past work and testimonials</li>
+            <li>Used seasonal content themes to boost visibility and relevance</li>
+        </ul>
+        
+        <h3>Key Results:</h3>
+        <ul>
+            <li>250% increase in followers in under 6 months</li>
+            <li>Over 30 custom art commissions directly through DMs</li>
+            <li>92% save rate on process videos and final reveal posts</li>
+            <li>Established TCK as a recognizable name in the indie art community</li>
+        </ul>
+        
+        <blockquote>
+            "They made me visible. I just painted — they did the magic behind the screen. Couldn’t have done this alone." - TCK Artworks
+        </blockquote>
+    </div>
+</div>
+
+
+    <!-- FreshBites Modal -->
+    <div id="seekho" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCaseStudyModal()">&times;</span>
+        <h2>Seekho Computer: From Offline Institute to Digital Force</h2>
+        <p>Seekho Computer had no online presence but a loyal offline student base. We helped them digitize their content, grow their YouTube and Instagram, and launch reels that crossed the million-view mark — building brand trust at scale.</p>
+        
+        <div class="modal-metrics">
+            <div class="modal-metric">
+                <span class="modal-metric-value">1M+</span>
+                <span class="modal-metric-label">Top Reel Views</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">3X</span>
+                <span class="modal-metric-label">YouTube Subscriber Growth</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">180K</span>
+                <span class="modal-metric-label">Monthly Reach</span>
+            </div>
+            <div class="modal-metric">
+                <span class="modal-metric-value">92%</span>
+                <span class="modal-metric-label">Student Retention</span>
+            </div>
+        </div>
+        
+        <h3>Strategy Implementation:</h3>
+        <ul>
+            <li>Reel content built around doubt-solving and quick lessons</li>
+            <li>Thumbnail and title optimization for YouTube growth</li>
+            <li>Created student testimonials and transformation stories</li>
+            <li>Built local hashtag strategy to attract regional students</li>
+            <li>Added visual learning content + captions for clarity</li>
+            <li>Weekly performance tracking and CTA testing</li>
+        </ul>
+        
+        <h3>Key Results:</h3>
+        <ul>
+            <li>Consistent 1M+ reel views and 3x subscriber growth in under a year</li>
+            <li>Improved student signups and in-class attendance through trust content</li>
+            <li>Retention shot up from 68% to over 90% in 6 months</li>
+            <li>Built the CEO’s personal brand as a reliable educator</li>
+        </ul>
+        
+        <blockquote>
+            "Our offline model couldn’t scale until GrowthApex took over. They didn’t just market us — they understood our students. Now we’re growing faster than ever." – Ashutosh Kumar, CEO
+        </blockquote>
+    </div>
+</div>
+
+
+    
+    
+
     <!-- Footer -->
     <footer style="background: var(--secondary-bg); padding: 4rem 2rem 2rem; text-align: center; border-top: 1px solid var(--glass-border);">
         <div class="container">
@@ -464,6 +818,45 @@
     
     <!-- Case Studies specific JavaScript -->
     <script>
+        // Case Study Modal Functions
+        function openCaseStudyModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Focus management for accessibility
+                const closeBtn = modal.querySelector('.close');
+                if (closeBtn) {
+                    closeBtn.focus();
+                }
+            }
+        }
+
+        function closeCaseStudyModal() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = '';
+        }
+
+        // Click outside to close modal
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                closeCaseStudyModal();
+            }
+        });
+
+        // Keyboard support for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openModal = document.querySelector('.modal[style*="flex"]');
+                if (openModal) {
+                    closeCaseStudyModal();
+                }
+            }
+        });
+
         // Add responsive grid handling
         function handleResponsiveGrid() {
             const featuredCaseGrid = document.querySelector('.featured-case-grid');
